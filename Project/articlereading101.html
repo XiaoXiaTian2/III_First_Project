@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>靈境行者第一百零一章 尋找陣眼_溫火小說網</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <!-- 種類列 -->
+    <link rel="stylesheet" href="./Shiningtest.css">
+    <!-- 回到頂部 -->
+    <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <header class="container-lg">
+        <div class="row mt-3">
+            <div class="col-4 col-lg-3 text-center">
+                <a href="./Homepage.html" class="">
+                    <img src="../imgs/logo.png" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-8 col-lg-6 text-center m-auto">
+                <div class="d-flex">
+                    <!-- 搜索列 -->
+                    <input type="text" id="searchBar" class="ps-3" placeholder="輸入查詢的作者或書名">
+                    <button class="btn btn-sm" id="searchBtn" onclick="searchTo()">搜索</button>
+                </div>
+            </div>
+            <div class="col-lg-3 text-center">
+                <ul class="userNav">
+                    <!-- 登入註冊列 -->
+                    <li class=""><a class="btn btn-sm mb-3 rounded-circle" href="./LoginUsing.html">登入</a></li>
+                    <li class=""><a class="btn btn-sm rounded-circle" href="./register.html">註冊</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- 分類標籤 -->
+    <nav class="navbar navbar-warning navbar-expand-lg">
+        <div class="container-lg">
+            <a class="navbar-brand" href="#"></a>
+            <button style="background-color: #F77744;" class="navbar-toggler mb-3" type="button"
+                data-bs-toggle="offcanvas" data-bs-target="#categoryNavbar" aria-controls="offcanvasNavbar">
+                <!-- 漢堡包圖案 -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="categoryNavbar"
+                aria-labelledby="categoryNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title m-3" id="categoryNavbarLabel"
+                        style="font-size: 30px;font-weight: bolder;">小說分類</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="userNav2" style="display: none;">
+                        <a class="btn btn-sm mb-3 rounded-circle" href="./LoginUsing.html" href="">登入</a>
+                        <a class="btn btn-sm mb-3 rounded-circle" href="">註冊</a>
+                    </div>
+                    <ul class="flex-grow-1 justify-content-center navbar-nav" id="category">
+                        <a href="./Homepage.html">
+                            <li>首頁</li>
+                        </a>
+                        <hr>
+                        <a href="">
+                            <li>玄幻</li>
+                        </a>
+                        <a href="">
+                            <li>科技</li>
+                        </a>
+                        <a href="">
+                            <li>歷史</li>
+                        </a>
+                        <a href="">
+                            <li>言情</li>
+                        </a>
+                        <a href="">
+                            <li>競技</li>
+                        </a>
+                    </ul>
+                    <span id="mailIcon" style="cursor: pointer;margin: auto 0;" data-bs-toggle="modal"
+                        data-bs-target="#mail">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- 狀態改變列 -->
+    <div class="container-lg mb-3" style="background: #ffebcd;
+    background: -moz-linear-gradient(top, #ffebcd 0%, #FFFFFF 100%);
+    background: -webkit-linear-gradient(top, #ffebcd 0%, #FFFFFF 100%);
+    background: linear-gradient(to bottom, #ffebcd 0%, #FFFFFF 100%);">
+        <div class="row">
+            <div class="BgColor col-6 col-md-5" style="font-weight: bold;">顏色：
+                <button style="background-color: #FFF8DC;" onclick="changeBgColor(0)"></button>
+                <button style="background-color: #F0FFFF;" onclick="changeBgColor(1)"></button>
+                <button style="background-color: #F5F5F5;" onclick="changeBgColor(2)"></button>
+                <button style="background-color: #FFF5EE;" onclick="changeBgColor(3)"></button>
+                <button style="background-color: #C7EDCC;" onclick="changeBgColor(4)"></button>
+                <button style="background-color: #FAF0E6;" onclick="changeBgColor(5)"></button>
+            </div>
+            <div class="FontSize col" style="font-weight: bold;">字體：
+                <button onclick="changeFontSize(16)">小</button>
+                <button onclick="changeFontSize(22)">中</button>
+                <button onclick="changeFontSize(24)">大</button>
+                <button onclick="changeFontSize(28)">大+</button>
+                <button onclick="changeFontSize(32)">大++</button>
+            </div>
+        </div>
+    </div>
+    <!-- 切換所在位置 -->
+    <div class="container-lg">
+        <div class="row">
+            <div class="col"><a href="./Homepage.html">首頁</a>／<a href="./introduction.html">靈境行者</a>／<a
+                    href="./catalog.html">靈境行者目錄</a></div>
+        </div>
+    </div>
+    <section class="container-lg text-center">
+        <!-- 標題 -->
+        <article id="Content">
+            <table class="border border-light" id="ContentTable">
+                <tr>
+                    <td>
+                        <h2 style="margin-top: 25px; font-weight: bolder;">第一百零一章 尋找陣眼</h2>
+                        <!-- 簡介 -->
+                        <p style="font-size: 16px;">作者 : <a href="">賣報小郎君</a></p>
+                        <!-- 內文 -->
+                        <div id="reading" class="mb-3">
+                            <p>突如其來的變化，讓眾主宰心裡危機感爆棚，同時無比茫然。</p>
+                            <p>不明白怎麼觸發了七星燈陣的危險。</p>
+                            <p>張元清立刻把身穿藤甲的小姨擁在懷裡，開啟烈陽戰神技能激活五爪金龍的防御形態，同時揚起左手連續打出響指，虛無化能量。</p>
+                            <p>7級主宰最擅萇就是把靈力虛無化漫天隆落的劍氣明顯衰弱一截，魔眼天王現出三頭八臂形如態八條虬結如龍的手臂。</p>
+                            <p>將刀槍棍捧等武器揮的密不透風，暴雨般的劍氣，一部分被他打碎打偏，一部分穿透格擋落在他身上，留下貫穿傷和斬斷骨頭的傷勢。</p>
+                            <p>銀瑤郡主格擋、躲避了部分劍氣，但降落的劍雨實在太多很快被斬去頭顱通削斷有臂像個被肢解的漂亮人偶。</p>
+                            <p>第一波劍雨很快結束，頭頂飄蕩的七星燈停了下來，風平浪靜。</p>
+                            <p>張元清松開止殺宮主，他的左耳和左肩被天空降下來的劍雨擊碎擊穿，身上有多處不危急要害的劍孔。</p>
+                            <p>魔眼天王從物品欄抓出一把血色短刀，癮君子似的深吸一口氣，刀身逸散出絲絲縷縷的血霧，涌入鼻腔。</p>
+                            <p>刀身的血色飛速黯淡，魔眼天王的傷勢則飛速癒合。</p>
+                            <p>這是蠱惑之妖常備血庫。該職業的兵器有吞噬精血儲存功能，與蠱惑之妖只嗜血狂暴技能完美搭配，增添續航能力。</p>
+                            <p>魔眼平時很少使用血庫，畢竟現實裡能把他逼到這一步的人很少。</p>
+                            <p>眾人裡只有傅青陽身上沒掛彩，白色西服纖塵不染與血跡斑斑的難民們截然不同。</p>
+                            <p>他本身就是八級中期，搭配增幅爆漲的劍師斗篷完全能應付同職業的劍氣。</p>
+                            <p>但傅青陽的臉色沒有絲毫輕松，甚至很凝重“銀瑤郡主下線了。”張元清嘆了口氣，取出小紅帽..收起郡主的斷臂軀幹和頭顱。</p>
+                            <p>過程中他從那雙妖異紅瞳裡看到了幾分哀怨，即便沒有洞察術張元清此刻也讀懂了銀瑤郡主見心理:老娘好不容易晉升主宰，你卻天天打高端局。</p>
+                            <p>作為主宰級陰物的銀瑤郡主，不會因此死去，但沒有生命力暫時下線了。</p>
+                            <p>陰物無法通過生命源液修復身軀，夏侯傲天把破損主宰級道具收回物品欄，額頭沁出了汗珠。</p>
+                            <p>“我防御道具都破損了，修復的話，需要一個時辰。但根據我觀察到的規律，七星燈陣會在五分鐘後再次移動。”</p>
+                            <p>移動就意味著劍雨降臨，到時候身為主角的他毫不意外的會領盒飯。</p>
+                            <p>傅青陽臉色凝重就在于此。</p>
+                            <p>他雖不怵劍氣，隊友卻不行，</p>
+                            <p>而隊友若是死于陣法，單靠他一人很難戰勝最後關的boss。</p>
+                            <p>“可惜我的吞天獸已經喂飽了！”張元清嘆息道。</p>
+                            <p>吞天獸目前處在第1階段吞噬物質只要他一直不使用，吞噬物質狀態，就直是待機狀態，直到24小時後吞天獸的代價刷新，開始索取能量，待機狀態就會結束。</p>
+                            <p>止殺宮主能復活我們一次，是最後壓箱底的手段...如果不能破解陣法，復活後無非是再死一次!</p>
+                            <p>傅青陽思緒飛轉，道:“元始，你有什麼主意。”</p>
+                            <p>張元清鎖緊眉頭，“我不懂陣法，給不出主意，但可以給夏侯傲天總結一下規律，幫忙分析細節或許會有用。”</p>
+                            <p>他看了看夏侯傲天說道“咱們所處的位置，也是北斗七星中的開陽，開陽的燈陣規律有三點，一是行走不能超過五步距離，否則就會降下孔明燈警告。二是不能脫離燈光籠罩區域。”</p>
+                            <p>“這可能是整個燈陣的規律，三是五分鐘左右，七星燈除會改變方位，期間會降下劍雨。”</p>
+                            <p>夏侯傲天皺眉思考，站在那裡，一言不發。</p>
+                            <p>“我們還有四分鐘迎來第二波劍雨。”張元清說。</p>
+                            <p>眾人都沒有說話，各自皺眉沉思。</p>
+                            <p>“還有三分鐘。”張元清計時提醒。</p>
+                            <p>沒有頭緒的止殺宮主說道:“做最壞的打篡，元始如果你能推演到我們遇襲的畫面，是不是能把損傷降到最輕。”</p>
+                            <p>張元清無奈搖頭:“觀星推演需要的時間不止11分鐘。另外，有黑煙罩，遮蔽星象我推演不到信息。”</p>
+                            <p>黑煙等同于隱秘，止殺宮主沒再說話。</p>
+                            <p>“還有兩分鐘。”見夏候傲天遲遲沒有回應，張元清語氣開始低沉。</p>
+                            <p>這時戒指裡傳來秦代方土只嘀咕聲:“我輩修世，尋仙問道，求的就是長生逍遙，你們簡直比蠢蟲還蠢，讓人憐憫。”</p>
+                            <p>夏侯傲天正焦慮著聽到這話心態有點崩，怒道“少說風涼話，你個沒用的糟老頭子。別人的老爺爺能幫主角開掛。你什麼都幹不了，要你何用。”</p>
+                            <p>秦代方士“呵呵”道“靈境就是你們最大的外掛...冠弱少年晉升主宰在我們那個時代是無法想象的。”</p>
+                            <p>夏侯傲天咬牙切齒:“我們要是死在這裡，你也別想再出去了。”</p>
+                            <p>“呵，這裡到處都是濃郁的陰氣，對我亦是大補”秦代方土笑道:“此乃聖地！”</p>
+                            <p>張元清語氣急促“就還有一分鐘。”</p>
+                            <p>他聽著兩個表演，心裡都快急爆了，秦代方土嘆息道:“開陽星又被稱為武曲星，主秩序。”</p>
+                            <p>夏侯傲回天和張元清同時一愣，後者把老爺爺的話轉述了一遍。</p>
+                            <p>傅青陽問道“武曲星為何主秩序而不是主暴力或者武力呢。”</p>
+                            <p>星象方面的知識他略有涉獵，只是星象駁雜晦澀深奧難懂，他也不是夜游神，沒有深入研究。</p>
+                            <p>“主勇武的是破軍也就是瑤光。”秦代方士傳達精神波動:“武曲星的武用你們這個時代理解就是維護治安，所以是掌秩序。”</p>
+                            <p>“我明白了”夏侯傲天激動起來，滿臉驚喜:“我知道遭遇攻擊原因了，開陽掌秩序，所以在有人獨自前行的時候，會有孔明燈警下警示一人獨行，眾人停滯不動，獨行者代表無序因此，會遭受攻擊。”
+                            </p>
+                            <p>傅青陽皺眉道“孔明燈飄動時，我們是一起行動的，攻擊依然降臨。”</p>
+                            <p>夏侯傲天一愣，魔眼天王沒好氣道:“你明白個球..元始之前操縱陰尸進來，只有一人的情況下。按理他說不算失序，但他還是遭受攻擊了。</p>
+                            <p>夏侯傲天啞口無言，臉色瞬間變得蒼白。</p>
+                            <p>張元清嘆了口氣“只剩三十秒，做好準備吧”</p>
+                            <p>魔眼再次現出三頭八臂，傅青陽凝神戒備，秦代方士淡淡道:“他思路沒有錯，只是你們這一代人不了解古代修行者，所以沒想出化解之法。如果我沒猜錯的話，要一起走禹步。”</p>
+                            <p>“什麼是禹步”張元清問。</p>
+                            <p>傅青陽，止殺宮主和魔眼露出一模一樣的疑惑之色。夏侯傲天不愧是學士，醍醐灌頂，大聲道:“禹步是道士在禱神儀禮中常用一種步法動作，腳踩七星，踏罡步斗，時間有限，我只演練一遍。”說著快速走了一段暗含規律步伐。
+                            </p>
+                            <p>恰好此時，天上的孔明燈開始飄動，這一次，眾人沒有急著追尋孔明燈，而是在夏侯傲天中口號召下，整齊劃一默契的邁起禹步。</p>
+                            <p>緩慢但穩定，追逐孔明燈陰森綠的燭光飄蕩，無聲無息沒有任何危機和兇險。</p>
+                            <p>魔眼天王吐出一口氣。</p>
+                            <p>“不錯我們找到在陣法中的生存之道了，接下來就是找陣眼。”</p>
+                            <p>大家一起看向夏侯傲天。</p>
+                            <p>夏侯傲天罕見的成為團隊主心骨，收獲巨大的情緒價值，但他不是很開心“通過我的觀察和分析，應該就是兩盞孔明燈隱藏在了這些孔明燈裡。找到它們破壞掉就能破陣。”</p>
+                            <p>夏侯傲天嘆息道:“但這幾乎不可能，老頭，你有什麼發現”</p>
+                            <p>秦代方士傳達出精神波動“陣眼在哪裡我不知道。但我知道就七星燈已經移動過兩次，斗柄指東。代表春季。斗柄指西，代表冬季。現在的斗柄在東，是春季。再有次冬季就來了。”</p>
+                            <p>“冬季來了會怎麼樣”張元清忙問。</p>
+                            <p>秦代方土呵呵，道:“意味著七星燈將轉為殺陣，你們就算掌控規律也別想活下來。呵呵，陣法終究是為殺人而創，豈會讓陷陣者平安無事”</p>
+                            <p>張元清心裡大凜，化險為夷的喜悅蕩然無存，陣眼隱藏在數百盞孔明燈之中，而這些孔明燈不能強行破壞，否則會招來劍氣襲擊。</p>
+                            <p>最糟糕是他們只有六分鐘的時間，要幾百盞孔明燈裡找出兩盞陣眼，這是人能幹出來的事。</p>
+                            <p>當張元清把秦代方士的話轉告，即便鎮定如傅青陽等，隊友們後也臉色大變。</p>
+                            <p>“突然進入地獄模式了啊。”魔眼天王嘿道:“我和傅青陽有七成把握挺過殺陣見到BOSS，元始天尊有三成，止殺宮主四成，至于夏侯傲天嘛，一成幾率都沒有。”</p>
+                            <p>三成幾率和四成幾率沒有區別啊!</p>
+                            <p>夏侯傲天必死無疑，我和宮主活下來的幾率不大，張元清焦慮。</p>
+                            <p>他最討厭的不是危機，而是在自己不擅長的領域裡遭遇生死危機。</p>
+                            <p>止殺宮主沉吟道“我的煉妖壺是至寶，任何攻擊都無法損毀它，真到了絕境，我會把煉妖壺交給你們中最有希望活下來那個，裡面保存著你們的分身，歸現實後想辦法得到母神子宮，如果大家都死在副本裡，那就只能等待會長先生找到南苑副本帶走煉妖壺。”
+                            </p>
+                            <p>“不過，煉妖壺是管理員權限物品，我不清楚副本重置後，靈境會不會收取它。”</p>
+                            <p>夏侯傲天強勢打斷:“都別急還沒到這一步。”</p>
+                            <p>他眼神深邃，表情認真，中二和傲慢的氣質收斂。</p>
+                            <p>“陣法講究平衡，既然冬季是殺陣，春季就一定是安全的。”他一邊說著，一邊取出傀儡，操縱著他前行。</p>
+                            <p>傀儡邁開步子走了十幾步，既沒有遭遇任何攻擊。</p>
+                            <p>夏侯傲天再操縱著它走出燈光籠罩的範圍，提示劍氣不出意外的來臨擊毀傀儡。</p>
+                            <p>這個結果讓眾人頗為驚喜。</p>
+                            <p>這意味著，他們可以在五分鐘內，走遍七座燈陣而不受任何攻擊。</p>
+                            <p>張元清低聲道:“怎麼找陣眼留給我們的時間不多了。”</p>
+                            <p>他這句話，達到了男默女淚的效果。</p>
+                            <p>秦代方士插了一句嘴“陣眼是陣法中樞，與其他孔明燈不同，它不具備攻擊力。只負責能量傳輸，這麼多的孔明燈，不會攻擊人的那個就是。”</p>
+                            <p>張元清中聽完就否決了想通過這個方法尋找陣眼，就得挨個攻擊孔明燈，試錯成本太高，時間來不及。</p>
+                            <p>傅青陽突然說道:“有一個辦法找出，我們可以利用靈境的規則找出陣眼，靈境中富有靈性的物品皆有屬性。陣眼和其他孔明燈不一樣，物品屬性也必然不同。”</p>
+                            <p>夏侯傲天搖頭“不行，黑煙有隱秘效果，我們看不到物品屬性，不信的話，你可以試試。”</p>
+                            <p>瑤光殿中，他們就沒看到斬仙飛刀和雕像刀物品屬性。</p>
+                            <p>“不愧是老大，等閒不開口，開口便一針見血。”</p>
+                            <p>傅青陽”嗯”一聲:“我們去往不同的燈陣，分開搜索，運氣好的話，也許三分鐘足夠了。”</p>
+                            <p>純凈明亮的金光驅逐了周遭的黑暗將慘綠色鬼火壓了下去。</p>
+                            <p>人體內靈力仿佛遭受驅逐，快速消散，他們毫不在意行動起來。</p>
+                            <p>奔出開陽燈陣，順著連接六座燈陣的線狀的孔明燈，前往玉衡、瑤光、天璣、天璇和天樞。</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <!-- 跳轉章節 -->
+            <div class="text-center mb-4">
+                <a href="./articlereading100.html" title="第一百章 七星燈陣">上一章</a> |
+                <a href="./catalog.html">靈境使者目錄</a> |
+                <a href="#" title="第一百零二章 擊殺Boss(7000)">下一章</a>
+            </div>
+        </article>
+    </section>
+    <!-- 尾頁 -->
+    <footer class="footer container-fluid">
+        <div class="declaim row">
+            <b>文章來源自各大平台，其版權屬於原創作者或上載平台，若有疑慮，請立即來信，將進行刪除動作。</b>
+        </div>
+        <div class="me-3 row">
+            <!-- 回信系統 -->
+            <div id="mail" class="modal fade" tabindex="-1" data-bs-backdrop="static">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">聯絡我們</h5>
+                            <button type="button" class="btn-close" id="closeBtn" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-start">
+                            <p>敬愛的讀者您好：</p>
+                            <p>可經由站內信或是利用以下e-mail寄信給我們</p>
+                            <p class="text-end">溫火小說網全體員工敬上。</p>
+                            <p>e-mail : <span onclick="copy()" id="copyemail">Abcde@gmail.com<img src="../imgs/copy.png"
+                                        style="height: 20px;width: 20px;cursor: pointer;">
+                                </span>
+                            </p>
+                            <label for="question">問題類型：</label>
+                            <select name="" id="question">
+                                <option value="">書籍推薦</option>
+                                <option value="">問題回饋</option>
+                                <option value="">用戶體驗</option>
+                            </select>
+                            <br>
+                            <label for="comment">問題內容：</label>
+                            <form action="" class="mt-2">
+                                <textarea id="comment" cols="42" rows="10" class="p-2 comment form-control"></textarea>
+                                <br>
+                                <div class="modal-footer pe-0">
+                                    <button style="background-color: var(--bs-warning);" class="btn"
+                                        id="comment">送出評論</button>
+                                    <button type="button" class="btn btn-secondary" id="cancelBtn"
+                                        data-bs-dismiss="modal">取消</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 d-flex justify-content-between">
+                <button class="js-back-to-top btn rounded-circle back-to-top">^ 回到頂部</button>
+                <span class="changeIcon" id="mailIcon2" style="cursor: pointer;margin: auto 0;" data-bs-toggle="modal"
+                    data-bs-target="#mail">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

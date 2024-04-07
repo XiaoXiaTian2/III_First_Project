@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>溫火小說網 : 首頁</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./Shiningtest.css">
+    <!-- 回到頂部 -->
+    <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- 導覽列 -->
+    <header class="container-lg">
+        <div class="row mt-3">
+            <div class="col-4 col-lg-3 text-center">
+                <a href="./Homepage.html" class="">
+                    <img src="../imgs/logo.png" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-8 col-lg-6 text-center m-auto">
+                <div class="d-flex">
+                    <!-- 搜索功能 -->
+                    <input type="text" id="searchBar" class="ps-3" placeholder="輸入查詢的作者或書名">
+                    <button class="btn btn-sm" id="searchBtn" onclick="searchTo()">搜索</button>
+                </div>
+            </div>
+            <div class="col-lg-3 text-center">
+                <ul class="userNav">
+                    <li class=""><a class="btn btn-sm mb-3 rounded-circle" href="./LoginUsing.html">登入</a></li>
+                    <li class=""><a class="btn btn-sm rounded-circle" href="./register.html">註冊</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- 分類標籤 -->
+    <nav class="navbar navbar-warning navbar-expand-lg">
+        <div class="container-lg">
+            <a class="navbar-brand" href="#"></a>
+            <button style="background-color: #F77744;" class="navbar-toggler mb-3" type="button"
+                data-bs-toggle="offcanvas" data-bs-target="#categoryNavbar" aria-controls="offcanvasNavbar">
+                <!-- 漢堡包圖案 -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="categoryNavbar"
+                aria-labelledby="categoryNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title m-3" id="categoryNavbarLabel"
+                        style="font-size: 30px;font-weight: bolder;">小說分類</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="userNav2" style="display: none;">
+                        <a class="btn btn-sm mb-3 rounded-circle" href="./LoginUsing.html" href="">登入</a>
+                        <a class="btn btn-sm mb-3 rounded-circle" href="">註冊</a>
+                    </div>
+                    <ul class="flex-grow-1 justify-content-center navbar-nav" id="category">
+                        <a href="./Homepage.html">
+                            <li>首頁</li>
+                        </a>
+                        <hr>
+                        <a href="">
+                            <li>玄幻</li>
+                        </a>
+                        <a href="">
+                            <li>科技</li>
+                        </a>
+                        <a href="">
+                            <li>歷史</li>
+                        </a>
+                        <a href="">
+                            <li>言情</li>
+                        </a>
+                        <a href="">
+                            <li>競技</li>
+                        </a>
+                    </ul>
+                    <span id="mailIcon" style="cursor: pointer;margin: auto 0;" data-bs-toggle="modal"
+                        data-bs-target="#mail">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- 內文(文章、分類) -->
+    <section class="container-lg">
+        <div class="row">
+            <div class="points col-xl-9">
+                <div class="row">
+                    <p class="newBookTitle mb-3 border-bottom border-2 border-warning">新書推薦</p>
+                    <!-- 第一排新書 -->
+                    <div class="d-flex col-12 newBooks">
+                        <div class="d-lg-flex w-50">
+                            <div class="text-center">
+                                <a href="#"><img src="../imgs/nb1.jpg" style="width:150px;"></a>
+                            </div>
+                            <div class="ms-2">
+                                <p><a href="">紫鼎仙緣</a></p>
+                                <p>作者：<a href="">馬大富貴</a></p>
+                                <div class="content">
+                                    <input type="checkbox" id="exp1"></input>
+                                    <div class="text">
+                                        <label for="exp1" class="btn1"></label>
+                                        <p>簡介：
+                                            放牛娃葉寒意外丟牛，因禍得福得到詭異神秘的紫鼎，看他如何以凡人平庸資質，逆天而上，進入頂尖修仙者行列，葉寒之名，名震三界，傲視五行，逍遙九天！
+                                            境界：煉氣，筑基，金丹，元嬰，化神，煉虛，合體，大乘……</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-lg-flex w-50 ms-sm-3">
+                            <div class="text-center">
+                                <div><a href="#"><img src="../imgs/lingjing.jpg" style="width:150px;height: 200px;"></a>
+                                </div>
+                            </div>
+                            <div class="ms-2 text-wrap">
+                                <p><a href="./introduction.html">靈境行者</a></p>
+                                <p>作者：<a href="">賣報小郎君</a></p>
+                                <div class="content">
+                                    <input type="checkbox" id="exp2"></input>
+                                    <div class="text">
+                                        <label for="exp2" class="btn1"></label>
+                                        <p>簡介：內容簡介 : 亙古通今，傳聞世有靈境。 關于靈境的說法，歷朝歷代的名人雅士眾說紛壇，詩中記載： “自齊至唐，茲山濅荒，靈境寂寥，罕有人游。”
+                                            “靈境不可狀，鬼工諒難求。”</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 第二排新書 -->
+                    <div class="d-flex col-12 newBooks">
+                        <div class="d-lg-flex w-50">
+                            <div class="text-center">
+                                <a href="#"><img src="../imgs/nb3.jpg" style="width:150px;height: 200px;"></a>
+                            </div>
+                            <div class="ms-2 text-wrap">
+                                <p><a href="#">妖女入我懷</a></p>
+                                <p>作者：<a href="">尺間螢火</a></p>
+                                <div class="content">
+                                    <input type="checkbox" id="exp3"></input>
+                                    <div class="text">
+                                        <label for="exp3" class="btn1"></label>
+                                        <p>簡介：夏遠穿越到了一部劇情向仙俠游戲里，成了大寧王朝七皇子。 好消息，七皇子十年後登基為帝。 壞消息，登基一年就亡了國，掛在了歪脖樹上。
+                                            十年後滅他國的反賊頭子，人稱血手人屠的亂國妖女顏冷秋，此刻剛被賣到皇城，還是個懵懵懂懂的小丫頭。 這個丫頭不錯，現在起就是我的通房丫鬟了！
+                                            揪你小臉，讓你滅我國！</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-lg-flex w-50 ms-sm-3">
+                            <div class="text-center">
+                                <div><a href="#"><img src="../imgs/nb4.jpg" style="width:150px;height: 200px;"></a>
+                                </div>
+                            </div>
+                            <div class="ms-2 text-wrap">
+                                <p><a href="#">一人之下：讓你煉氣，你成仙了？</a></p>
+                                <p>作者：<a href="">願見青山嫵媚</a></p>
+                                <p style="font-size: 18px;">簡介：穿越成少年時期的惡童李慕玄，本想拜入三一門當個普通練炁士，卻沒想到練著練著，自己竟然成仙了。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <!-- 更新章節 -->
+                <div class="row fs-4 fw-bold ms-2 ms-lg-0">
+                    <p>更新列表</p>
+                </div>
+                <div class="row updateListContainer">
+                    <table class="updateList table" style="width: 100%;">
+                        <tr style="font-size: 24px;border-bottom: 2px solid black;">
+                            <th>分類</th>
+                            <th>書名</th>
+                            <th>最新章節</th>
+                            <th>更新日期</th>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">玄幻</a>]</td>
+                            <td><a href="">魔法師</a></td>
+                            <td><a href="">第三百六十章 尾聲</a></td>
+                            <td>12月20日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">言情</a>]</td>
+                            <td><a href="">鬼醫棄妃翻身記</a></td>
+                            <td><a href="">第四四三章 繼承皇位</a></td>
+                            <td>12月20日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">言情</a>]</td>
+                            <td><a href="">嫡姐</a></td>
+                            <td><a href="">第九十三章 回來</a></td>
+                            <td>12月20日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">玄幻</a>]</td>
+                            <td><a href="">書籍供應商</a></td>
+                            <td><a href="">第八百三十九章 大結局</a></td>
+                            <td>12月20日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">歷史</a>]</td>
+                            <td><a href="">一世富貴</a></td>
+                            <td><a href="">第103章 歲月如歌（大結局）</a></td>
+                            <td>12月20日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">言情</a>]</td>
+                            <td><a href="">食香</a></td>
+                            <td><a href="">第二百三十八章 大結局</a></td>
+                            <td>12月20日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">玄幻</a>]</td>
+                            <td><a href="">流浪仙人</a></td>
+                            <td><a href="">第1547章 互開條件</a></td>
+                            <td>12月20日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">科技</a>]</td>
+                            <td><a href="">bug之神</a></td>
+                            <td><a href="">第六百七十二章 大結局</a></td>
+                            <td>12月20日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">歷史</a>]</td>
+                            <td><a href="">長樂歌</a></td>
+                            <td><a href="">第三百六十六章 敬酒</a></td>
+                            <td>12月20日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">歷史</a>]</td>
+                            <td><a href="">重生之定三國</a></td>
+                            <td><a href="">第572章 天下歸一 大結局</a></td>
+                            <td>12月19日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">玄幻</a>]</td>
+                            <td><a href="">蠻荒風暴</a></td>
+                            <td><a href="">第六百九十五章 蠻荒終結</a></td>
+                            <td>12月19日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">玄幻</a>]</td>
+                            <td><a href="">七界戰仙</a></td>
+                            <td><a href="">第661章 此生再不歸！【大結局】</a></td>
+                            <td>12月19日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">歷史</a>]</td>
+                            <td><a href="">深宅旺妻</a></td>
+                            <td><a href="">361.有生之年</a></td>
+                            <td>12月19日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">玄幻</a>]</td>
+                            <td><a href="">怨靈升級路</a></td>
+                            <td><a href="">番外：愛神的愿望</a></td>
+                            <td>12月19日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">歷史</a>]</td>
+                            <td><a href="">我的公公叫康熙</a></td>
+                            <td><a href="">第一千六百零七章 吃虧了</a></td>
+                            <td>12月18日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">言情</a>]</td>
+                            <td><a href="">鍾醫師的九零年代</a></td>
+                            <td><a href="">第98章:再遇十號</a></td>
+                            <td>12月18日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">玄幻</a>]</td>
+                            <td><a href="">道爺要飛升</a></td>
+                            <td><a href="">第98章 啟程</a></td>
+                            <td>12月18日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">科技</a>]</td>
+                            <td><a href="">踏星</a></td>
+                            <td><a href="">第四千八百四十二章 卒化</a></td>
+                            <td>12月18日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">言情</a>]</td>
+                            <td><a href="">卷飛全家后我躺平了</a></td>
+                            <td><a href="">二百三十八章 表少爺</a></td>
+                            <td>12月18日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">言情</a>]</td>
+                            <td><a href="">我在異世封神</a></td>
+                            <td><a href="">第九十三章 府衙來人</a></td>
+                            <td>12月18日</td>
+                        </tr>
+                        <tr>
+                            <td>[<a href="">玄幻</a>]</td>
+                            <td><a href="">神印王座II皓月當空</a></td>
+                            <td><a href="">第三百五十七章 三領域帶來的絕望</a></td>
+                            <td>12月18日</td>
+                        </tr>
+                    </table>
+                </div>
+                <hr>
+                <div class="row fs-4 fw-bold ms-2 ms-lg-0 mb-3">
+                    <div>
+                        外部相關作品
+                    </div>
+                </div>
+                <div class="row m-auto mb-3 carouselContainer container">
+                    <div id="controls" class="carousel slide col-12" data-bs-ride="carousel" data-bs-interval="10000">
+                        <div class="carousel-indicators mb-1 ms-auto me-auto" style="width: 150px;">
+                            <button type="button" data-bs-target="#controls" data-bs-slide-to="0" class="active"
+                                aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#controls" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#controls" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active text-center" data-bs-interval="10000">
+                                <a
+                                    href="https://www.linetv.tw/drama/15592/eps/1?drama_id=15592&source=SEARCH_RESULT_PAGE" target="_blank">
+                                    <img src="../imgs/carousel1.jpg" class="imgs">
+                                </a>
+                            </div>
+                            <div class="carousel-item text-center" data-bs-interval="10000">
+                                <a href="https://v.qq.com/x/cover/mzc00200ny9abq4/t0047qd3nbo.html" target="_blank">
+                                    <img src="../imgs/carousel2.jpg" class="imgs">
+                                </a>
+                            </div>
+                            <div class="carousel-item text-center">
+                                <a href="">
+                                    <img src="../imgs/carousel3.jpg" class="imgs">
+                                </a>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#controls"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#controls"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <aside class="col-xl-3 ps-lg-4 rankHomeContainer">
+                <div class="row rank rankHome" style="border:2px solid rgba(220, 20, 60, 0.1);">
+                    <div class="mb-2 d-flex justify-content-between">
+                        <h3>熱門小說排行</h3><img src="../imgs/book.png" style="height: calc(1.3rem + .6vw);">
+                    </div>
+                    <ol>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle"
+                                style="color: hsl(57, 100%, 59%);background-color: gold">1</span><a href="#">都市古仙醫</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle"
+                                style="color: gray;background-color: silver">2</span><a href="#">九星霸體訣</a></li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle"
+                                style="color: brown;background-color: rgb(234, 97, 97)">3</span><a
+                                href="./introduction.html">靈境行者</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">4</span><a href="#">我有一劍</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">5</span><a href="#">長夜君主</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">6</span><a href="">光陰之外</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">7</span><a href="">滄元圖</a></li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">8</span><a href="">大主宰</a></li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">9</span><a href="">唐人的餐桌</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">10</span><a href="">盛世春</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">11</span><a href="">宇宙職業選手</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">12</span><a href="">大奉打更人</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">13</span><a href="">深空彼岸</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">14</span><a href="">三寸人間</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">15</span><a href="">盡歡顏</a>
+                        </li>
+
+                    </ol>
+                </div>
+                <div class="row rank rankHome" style="border: 2px solid rgba(255, 127, 80, 0.3);">
+                    <div class="mb-2 d-flex justify-content-between">
+                        <h3>最新上傳排行</h3><img src="../imgs/upload.png" style="height: calc(1.3rem + .6vw);">
+                    </div>
+                    <ol>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle"
+                                style="color: hsl(57, 100%, 59%);background-color: gold">1</span><a
+                                href="#">我師叔他權傾天下</a></li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle"
+                                style="color: gray;background-color: silver">2</span><a href="#">獨步成仙</a></li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle"
+                                style="color: brown;background-color: rgb(234, 97, 97)">3</span><a href="#">萬貫娘子</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">4</span><a href="#">凡女修仙錄</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">5</span><a href="#">好戲登場</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">6</span><a href="">帝國第一駙馬</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">7</span><a href="">落難情緣</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">8</span><a href="">異域天境</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">9</span><a href="">蕭城龍興</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">10</span><a href="">江湖似月牙</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">11</span><a href="">光約</a></li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">12</span><a href="">黑土龍魂</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">13</span><a href="">逍遙小捕快</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">14</span><a href="">窈窕春色</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">15</span><a href="">女神的超級贅婿</a>
+                        </li>
+                    </ol>
+                </div>
+                <div class="row rank  rankHome" style="border: 2px solid rgba(255, 255, 0, 0.3);">
+                    <div class="mb-2 d-flex justify-content-between">
+                        <h3>收藏排行</h3><img src="../imgs/star.png" style="height: calc(1.3rem + .6vw);">
+                    </div>
+                    <ol>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle"
+                                style="color: hsl(57, 100%, 59%);background-color: gold">1</span><a href="#">龍血戰神</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle"
+                                style="color: gray;background-color: silver">2</span><a href="#">武道至尊</a></li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle"
+                                style="color: brown;background-color: rgb(234, 97, 97)">3</span><a href="#">少年醫仙</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">4</span><a href="#">神醫相師</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">5</span><a href="#">武煉巔峰</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">6</span><a href="">神醫相師</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">7</span><a href="">完美世界</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">8</span><a href="">莽荒紀</a></li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">9</span><a href="">雪鷹領主</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">10</span><a href="">聖墟</a></li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">11</span><a href="">元尊</a></li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">12</span><a href="">擇天記</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">13</span><a href="">修真聊天群</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">14</span><a href="">永夜君王</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">15</span><a href="">神藏</a></li>
+
+                    </ol>
+                </div>
+            </aside>
+        </div>
+    </section>
+    <!-- 尾頁 -->
+    <footer class="footer container-fluid">
+        <div class="declaim row">
+            <b>文章來源自各大平台，其版權屬於原創作者或上載平台，若有疑慮，請立即來信，將進行刪除動作。</b>
+        </div>
+        <div class="me-3 row">
+            <div id="mail" class="modal fade" tabindex="-1" data-bs-backdrop="static">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">聯絡我們</h5>
+                            <button type="button" class="btn-close" id="closeBtn" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-start">
+                            <p>敬愛的讀者您好 : </p>
+                            <p>可經由站內信或是利用以下e-mail寄信給我們</p>
+                            <p class="text-end">溫火小說網全體員工敬上。</p>
+                            <p>e-mail : <span onclick="copy()" id="copyemail">Abcde@gmail.com<img src="../imgs/copy.png"
+                                        style="height: 20px;width: 20px;cursor: pointer;">
+                                </span>
+                            </p>
+                            <label for="question">問題類型：</label>
+                            <select name="" id="question">
+                                <option value="">書籍推薦</option>
+                                <option value="">問題回饋</option>
+                                <option value="">用戶體驗</option>
+                            </select>
+                            <br>
+                            <label for="comment">問題內容 :</label>
+                            <form action="" class="mt-2">
+                                <textarea id="comment" cols="42" rows="10" class="p-2 form-control"></textarea>
+                                <br>
+                                <div class="modal-footer pe-0">
+                                    <button style="background-color: var(--bs-warning);" class="btn"
+                                        id="comment">送出評論</button>
+                                    <button type="button" class="btn btn-secondary" id="cancelBtn"
+                                        data-bs-dismiss="modal">取消</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 d-flex justify-content-between">
+                <button class="js-back-to-top btn rounded-circle back-to-top">^ 回到頂部</button>
+                <span id="mailIcon2" style="cursor: pointer;margin: auto 0;" data-bs-toggle="modal"
+                    data-bs-target="#mail">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
+    
+</body>
+
+</html>

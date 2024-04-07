@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>靈境行者第九十九章 各自的恐懼（7000）_溫火小說網</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./Shiningtest.css">
+    <!-- 回到頂部 -->
+    <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <header class="container-lg">
+        <div class="row mt-3">
+            <div class="col-4 col-lg-3 text-center">
+                <a href="./Homepage.html" class="">
+                    <img src="../imgs/logo.png" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-8 col-lg-6 text-center m-auto">
+                <div class="d-flex">
+                    <!-- 搜索功能 -->
+                    <input type="text" id="searchBar" class="ps-3" placeholder="輸入查詢的作者或書名">
+                    <button class="btn btn-sm" id="searchBtn" onclick="searchTo()">搜索</button>
+                </div>
+            </div>
+            <div class="col-lg-3 text-center">
+                <ul class="userNav">
+                    <li class=""><a class="btn btn-sm mb-3 rounded-circle" href="./LoginUsing.html">登入</a></li>
+                    <li class=""><a class="btn btn-sm rounded-circle" href="./register.html">註冊</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- 分類標籤 -->
+    <nav class="navbar navbar-warning navbar-expand-lg">
+        <div class="container-lg">
+            <a class="navbar-brand" href="#"></a>
+            <button style="background-color: #F77744;" class="navbar-toggler mb-3" type="button"
+                data-bs-toggle="offcanvas" data-bs-target="#categoryNavbar" aria-controls="offcanvasNavbar">
+                <!-- 漢堡包圖案 -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="categoryNavbar"
+                aria-labelledby="categoryNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title m-3" id="categoryNavbarLabel"
+                        style="font-size: 30px;font-weight: bolder;">小說分類</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="userNav2" style="display: none;">
+                        <a class="btn btn-sm mb-3 rounded-circle" href="./LoginUsing.html" href="">登入</a>
+                        <a class="btn btn-sm mb-3 rounded-circle" href="">註冊</a>
+                    </div>
+                    <ul class="flex-grow-1 justify-content-center navbar-nav" id="category">
+                        <a href="./Homepage.html">
+                            <li>首頁</li>
+                        </a>
+                        <hr>
+                        <a href="">
+                            <li>玄幻</li>
+                        </a>
+                        <a href="">
+                            <li>科技</li>
+                        </a>
+                        <a href="">
+                            <li>歷史</li>
+                        </a>
+                        <a href="">
+                            <li>言情</li>
+                        </a>
+                        <a href="">
+                            <li>競技</li>
+                        </a>
+                    </ul>
+                    <span id="mailIcon" style="cursor: pointer;margin: auto 0;" data-bs-toggle="modal"
+                        data-bs-target="#mail">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- 狀態改變列 -->
+    <div class="container-lg mb-3" style="background: #ffebcd;
+    background: -moz-linear-gradient(top, #ffebcd 0%, #FFFFFF 100%);
+    background: -webkit-linear-gradient(top, #ffebcd 0%, #FFFFFF 100%);
+    background: linear-gradient(to bottom, #ffebcd 0%, #FFFFFF 100%);">
+        <div class="row">
+            <div class="BgColor col-6 col-md-5" style="font-weight: bold;">顏色：
+                <button style="background-color: #FFF8DC;" onclick="changeBgColor(0)"></button>
+                <button style="background-color: #F0FFFF;" onclick="changeBgColor(1)"></button>
+                <button style="background-color: #F5F5F5;" onclick="changeBgColor(2)"></button>
+                <button style="background-color: #FFF5EE;" onclick="changeBgColor(3)"></button>
+                <button style="background-color: #C7EDCC;" onclick="changeBgColor(4)"></button>
+                <button style="background-color: #FAF0E6;" onclick="changeBgColor(5)"></button>
+            </div>
+            <div class="FontSize col" style="font-weight: bold;">字體：
+                <button onclick="changeFontSize(16)">小</button>
+                <button onclick="changeFontSize(22)">中</button>
+                <button onclick="changeFontSize(24)">大</button>
+                <button onclick="changeFontSize(28)">大+</button>
+                <button onclick="changeFontSize(32)">大++</button>
+            </div>
+        </div>
+    </div>
+    <!-- 切換所在位置 -->
+    <div class="container-lg">
+        <div class="row">
+            <div class="col"><a href="./Homepage.html">首頁</a>／<a href="./introduction.html">靈境行者</a>／<a
+                    href="./catalog.html">靈境行者目錄</a></div>
+        </div>
+    </div>
+    <section class="container-lg text-center">
+        <!-- 標題 -->
+        <article id="Content">
+            <table class="border border-light" id="ContentTable">
+                <tr>
+                    <td>
+                        <h2 style="margin-top: 25px; font-weight: bolder;">第九十九章 各自的恐懼（7000）</h2>
+                        <!-- 簡介 -->
+                        <p style="font-size: 16px;">作者 : <a href="">賣報小郎君</a></p>
+                        <!-- 內文 -->
+                        <div id="reading" class="mb-3">
+                            <p>“這小子還真被冥婚隊伍給搶了？之前的冥婚隊伍是夏侯傲天心裡陰影的映射，特地來接他的？”</p>
+                            <p>張元清站在壁畫前，嘖嘖稱奇。</p>
+                            <p>最可怕最牢固的幻境，永遠是根據目標內心深處恐懼事物進行編織。</p>
+                            <p>濃眉大眼的夏侯傲天，竟然對冥婚有心理陰影？</p>
+                            <p>不，不一定是冥婚，而是不幸福的婚姻，或者是鬼一樣可怕的妻子。</p>
+                            <p>是父母的婚姻不幸福，讓他從小產生了心理陰影？</p>
+                            <p>浮想聯翩之際，壁畫發生了變化，兩名紙人上前摁住新郎的腦袋，強迫他拜堂成親。</p>
+                            <p>又有一名紙人上前，按在新娘的肩膀，使其躬身跪拜。</p>
+                            <p>突然，新娘蓋頭下的腦袋滾落，“咕嚕嚕”滾到新郎面前，那顆腦袋腐爛嚴重，即便塗抹白粉，也掩蓋不了潰爛的皮肉。</p>
+                            <p>新娘的雙眼是瘮人的白瞳，直勾勾的盯著新郎，眼眶流下兩行黑色血淚。</p>
+                            <p>壁畫裡，新郎嚇的開始翻白眼了，身子篩糠般的抖動。</p>
+                            <p>不好，他要嚇出問題來了！張元清見狀，連忙提筆，在壁畫裡繪出一道道閃電。</p>
+                            <p>充滿毀滅氣息的銀白閃電降臨，把堂內的怨靈邪祟蒸發幹淨，隻剩驚魂未定的新郎，他惶恐的左顧右盼，不知道發生了什麼。</p>
+                            <p>突然，大堂的門敞開，一群身穿血色喜服的紙人，扶著新娘走了進來。</p>
+                            <p>新娘穿著繡鞋的腳不著地，是飄著的。</p>
+                            <p>拜堂成親重新開始。</p>
+                            <p>“強行破壞救不出夏侯傲天，最多在危機關頭，替他化解一下恐懼……”張元清摸起下巴，皺眉思考。</p>
+                            <p>任由幻境發展下去，夏侯傲天要麼被自己內心的恐懼活活嚇死，要麼死於鬼新娘之手。</p>
+                            <p>幻境就是這樣，雖然是假的，但同樣致命，利用目標內心的恐懼編織幻境，無聲無息把人殺死在幻境中，是幻術師最喜歡做的事。</p>
+                            <p>這種時候，指望夏侯傲天自己克服陰影，戰勝恐懼是不可能的。</p>
+                            <p>內心恐懼之物，這麼容易克服的話，就不會變成陰影了。</p>
+                            <p>張元清心裡一動，借助上一幅壁畫的經驗，用毛筆勾勒出一個畫風簡約的火柴人。</p>
+                            <p>火柴人(新郎)融入壁畫裡，變成身穿喜服的新郎。</p>
+                            <p>既然無法打斷，那就讓虛幻新郎代替夏侯傲天完成喜事。</p>
+                            <p>然而，新郎剛一出現，堂內紙人清身軀不動，脖子僵硬的扭動九十度呆滯又陰森面孔，齊刷刷的看向假新郎。</p>
+                            <p>假新郎身軀扭曲，模樣突變，變成了一具紙人，默默加入隊伍。</p>
+                            <p>“拒絕假新郎代替自己哪怕是鬼新娘，也不容許配角占有”</p>
+                            <p>身為頂尖幻術師的張元清，解讀出夏侯傲天的心理變化，忍不住吐槽起來。</p>
+                            <p>編織幻術的核心，其實是迎合目標，認識目標了解目標，然後殺死目標。</p>
+                            <p>一些和目標性格完全不符的東西，哪怕強行編織出來，最終也會以失敗告終。</p>
+                            <p>壁畫是根據夏侯傲天內心的恐懼編織，他是破局者，不但要對付幻境，還要對付夏侯傲天。</p>
+                            <p>壁畫中新娘的腦袋再次掉落，滾到新郎夏侯傲天面前。</p>
+                            <p>張元清連忙在新娘腦袋上畫了一筆，幻化出蓋頭，遮擋住可怕腦袋，沒讓新郎看見，替他消弭了最驚悚的畫面。</p>
+                            <p>不能，讓他繼續沉浸在冥婚幻境裡，試試用恐懼擊敗恐懼。</p>
+                            <p>“記得夏侯傲天說過，他向家族貸款了一百年都換不清的材料。”張元清改變思路，提筆在壁畫裡勾勒起來一個新火柴人勾勒完畢，在壁畫中化成夏侯家主的模樣。</p>
+                            <p>他滿意收筆，默默看著壁畫的發展。</p>
+                            <p>堂內的夏侯家主從懷裡掏出賬本，大聲道:“夏侯傲天然你向家族貸款的錢還沒還清，誰允許你成親的還不清債務，你這輩子都別想娶妻生子，乖乖給夏侯家當牛做馬。”</p>
+                            <p>原本滿臉驚恐的新郎，聞言，突然變得面如死灰，不再抗拒成親，與鬼新娘完成了一拜高堂。</p>
+                            <p>呃，好像把主角的求生欲給打垮了!張元清有些尷尬。</p>
+                            <p>“這就麻煩了啊!”</p>
+                            <p>破解幻境是技術活，就像劍客的劍術，苦練劍術的劍客，會比一般的劍客強大。</p>
+                            <p>靈境賦予的是最基礎的天賦，保證了下限，至于天花板有多高，得看個人修行。</p>
+                            <p>張元清畢竟是半路出家，獲得幻神心臟不過三四個月，純技術方面，不如那些資深的虛無者。</p>
+                            <p>當然，給他反復嘗試，破解幻境肯定不難，只是，如果在夏侯傲天這裡浪費太多時間死，其他人的安危就無法保證了。</p>
+                            <p>而選擇救其他人，靈體強度最差的夏侯傲天，多半兇多吉少。</p>
+                            <p>張元清皺眉思索幾秒，想到了辦法，張口吐出道太陰之氣。</p>
+                            <p>身軀如同黑煙凝聚，只有腦袋是真實的六長老現身，躬身行禮:“主人!”</p>
+                            <p>張元清頗有威嚴的頷首，指著身前的壁畫“我的隊友陷入幻境中了，編織幻境的存在，位格極高，我無法強行帶人出來，需要你幫忙破解幻境。”</p>
+                            <p>秀美的六長老蹙眉道:“主人，您擁有至高無上的權柄，連您都無法破解，何況是我。”</p>
+                            <p>張元清保持著威嚴姿態:“我只是想聽取一下你的意見。”</p>
+                            <p>六長老頓時懂了。主人遇到了技術上的難關，需要她的幫助。</p>
+                            <p>她當即將目光投向壁畫。此時，夏侯傲天已經完成拜堂，被紙人帶著前往後院。</p>
+                            <p>後院是一片荒蕪，有一座老墳，一座新墳。新墳剛挖掘好，旁邊擺著一具黑色棺材，棺材蓋敞開，內部空空如也，這口棺材顯然是為夏侯傲天準備的。</p>
+                            <p>六長老詫異道“他為何不反抗”，以心中恐懼之物編織的幻境，怎麼如此平靜，任由紙人施為。</p>
+                            <p>張元清板著臉“不要在意這些細節。”</p>
+                            <p>六長老便不敢多問，語速極快，道“他的靈體深陷幻境之中，對自己被鬼怪糾纏深信不疑，此類情況，需要在幻境中給予暗示，喚醒他的自我。”</p>
+                            <p>張元清忙問“怎麼喚醒自我”</p>
+                            <p>“幻境就像一場真實的夢境，夢境中的人念頭是單一的，不會去想自己到底有多強，區區惡靈根本奈何不了自己。</p>
+                            <p>“所以，我們要讓他想起自己究竟是誰，讓他想起自己有多強大。自我認識複蘇，幻境就不攻自破。</p>
+                            <p>“至於該怎麼樣給予暗示，就得根據他的性格、習慣、喜好等方面進行研究。”</p>
+                            <p>剛才我幻化出的夏侯家主，已經喊出“夏侯傲天”的名字，但沒有作用！我也不知道夏侯傲天的真名……</p>
+                            <p>常用的靈境ID都不管用，現實裡的一些人際關係、信息，更不可能喊醒他。</p>
+                            <p>他真提筆在墻上勾勒出一張張紙錢，令其飄滿荒蕪的後宅，紛紛楊揚的落在地上，落入棺材，落在夏侯傲天和紙人身遇上。</p>
+                            <p>每一張紙錢上都寫著某些信息。</p>
+                            <p>此時，夏侯傲天已經躺進了棺材，一名紙人高舉木槌和木釘，穿透他的腹部，把他狠狠釘在棺材裡。</p>
+                            <p>疼痛讓夏侯傲天臉龐變得扭曲，拼命掙扎，想要逃離，卻被紙人們死死按住。</p>
+                            <p>紛紛揚揚的紙錢飄落在他臉上，上面寫著“我乃夏候傲天，當橫掃世間一切敵人。”</p>
+                            <p>壁畫裡的他表情明顯一愣，出現呆滯。</p>
+                            <p>越來越多的紙錢酒落，每一張紙錢上都寫著一行字：“三十年河東，三十年河西，莫欺少年窮”，“天不生我夏侯做天，學士萬古如長夜”、“夏侯傲天龍王歸來”、“主角是怎樣練成的”“半神老祖也要臣服我”“攤牌了，我就是夏侯傲天”
+                            </p>
+                            <p>夏侯傲天怔怔地看著這些紙錢，陷入迷茫，陷入困惑，陷入思考。</p>
+                            <p>當紙人釘死他四肢，準備將最後一根木釘敲入胸膛，夏侯傲天眼裡的迷茫和困惑盡退。</p>
+                            <p>他的眉心浮現丹爐印記，眼中噴涌出璀璨的火焰。周圍紙人瞬間被引燃，三色火焰潮水般鋪開，點燃了棺材、荒地和墳墓，點燃了老宅。</p>
+                            <p>壁畫中燃起熊熊大火，緊接著，水波般蕩漾，夏侯傲天從墻壁中踏出，他昂首挺胸，脾睨群雄，頗有做大帝的氣勢。</p>
+                            <p>張元清松了口氣題，針對性格的話，他能想出的就只有這招了。</p>
+                            <p>讓自負的夏侯傲天醒悟,自己是主角，既然是主角，又怎會懼區區冥婚</p>
+                            <p>如果這招還不行張元清就嘗試解除幻神心臟口部分封印，強行破解幻境，只是這樣一來，也許副本裡最可怕就不是BOSS，而是他了。</p>
+                            <p>“呦，你居然比我更早走出幻境也是，你畢竟是日游神和虛無者雙職業。”夏侯傲天昂起下巴，“而我雖然不精通幻術，但身為主角，區區幻境能奈我何。”</p>
+                            <p>張元清淡淡道:“我乃夏侯傲天慨，當橫掃世間一切敵是吧。”</p>
+                            <p>夏侯傲天一愣。張元清掃他一眼，又道:“天不生我夏侯傲天，學土萬古如長夜。”</p>
+                            <p>夏侯傲天不復剛才的傲氣，驚疑不定“你...怎麼知道”</p>
+                            <p>張元清勾起嘴角:“我幻化出來，為了救你!”</p>
+                            <p>“那幻境裡的家主”</p>
+                            <p>“也是我幻化出來的，原本想用巨額債務讓你請醒一下，認清楚什麼是現實，沒想到某人直接放棄了求生。”</p>
+                            <p>張元清嘴角笑容擴大，“忘記告訴你，你是第一個陷入幻境的，因為你修為最弱。”</p>
+                            <p>“多虧有你啊，就算是本主角，也有需要配角鼎力相助的時候，嗯，這件事能不能不說出去。”</p>
+                            <p>張元清審視著他，調侃道:.“你先告訴我，為什麼你內心恐懼著結婚主角難道不應該三妻四妾嗎？”</p>
+                            <p>侯傲天表情頓時變得極為精彩，有種內心的秘密被人窺視到羞恥感，還被要挾了...</p>
+                            <p>張元清也不追問，故意留白，轉而說“去看看其他人吧，他們應該比你更堅挺，但不能再拖延。”</p>
+                            <p>他舉起掌心的金色火焰，沿著墻壁而天，夏侯傲天一臉便秘的難受樣子，低聲道“可惡，被元始天尊看笑話了!居然還要挾我......”</p>
+                            <p>左手的鐵扳指裡，為傳來秦代方士的精神波動:“是什麼讓您產生了自己不是個笑話的錯覺"</p>
+                            <p>夏侯傲天懶得和他嗶嗶，快步跟上。</p>
+                            <p>二人來到第三塊壁畫前，看見的是漆黑夜晚，城郊的繁華社區中，火焰和濃煙滾滾升起，豪華的別墅坍塌成廢墟。</p>
+                            <p>一群雙眼猩紅，肌肉虬結的惡徒到處肆虐,，屠刀之下，一個個鮮活的生命倒在血泊中。</p>
+                            <p>某處坍塌的廢墟裡一個小女孩蜷縮著，借著廢墟的掩護，瑟瑟發抖，小臉沾滿淚痕。</p>
+                            <p>她很快就被一位光頭壯漢，找到猩紅的雙瞳充滿惡意，朝著小的女孩露出猙獰笑容。</p>
+                            <p>感語小女孩下的奔跑起來，身後的壯漢緊追不舍。她成功逃脫了追殺，在另她處廢墟中躲藏起來</p>
+                            <p>“這是楚家被滅門時候的場景”夏侯傲天是知道止殺宮主身世，當初夏侯池就曾遠赴松海，試圖殺死止殺宮主為兒子報仇。</p>
+                            <p>張元清嘆了一口氣，楚家滅門事件是小姨最大的夢魘，在她幼小的心靈，留下了難以磨滅的傷痕，她一邊恐懼著，一邊又覺得自己當年就應該和家族共存亡。</p>
+                            <p>她被自己的執念和恐懼困住了。這樣下去，等她內心的疲憊和絕望積累到一定程度，失去求生欲望，幻境中心小女孩就會被抓到然後殺死。</p>
+                            <p>“她遲早會被抓住。”夏侯傲天說</p>
+                            <p>有了前一次的經驗，張元清很快想出破解幻境辦法，提筆在壁畫上勾勒出一個五官很隨意的火柴人，火柴人融入壁畫，變成了元始天尊的模樣。</p>
+                            <p>他走進廢墟，小在小女孩面前蹲下畫裡柔聲道:“我帶你離開這裡。”小女孩昂起淚痕斑駁的臉蛋，怔怔地看著他，她哽咽的點頭。</p>
+                            <p>張元清牽起她的手時一塊走出廢墟，漫步在烈火和濃煙的戰場。</p>
+                            <p>雙眼猩紅的壯漢們前仆後繼的涌來，還沒靠近，就被閃電劈成焦炭。</p>
+                            <p>張元清牽著小女孩從壁畫中走來，越走越近，小女孩的眼神也越來越平靜深邃。</p>
+                            <p>墻面泛起波紋，畫中的元始天尊消失，身穿紅裙，戴銀色面具的止殺宮主走了出來。</p>
+                            <p>因為有夏侯傲天在，她只是目光柔柔的看一眼張元清，沒有說什麼。要是平時，肯定趁機撒嬌，要求親親抱抱。</p>
+                            <p>此時，三人已經，走到墻角，這邊沒有壁畫了，便轉身返回，路過基座，來到另一邊。</p>
+                            <p>他們停在第四處壁畫前，這處壁畫主色調士片灰暗，沒有色彩，一棟小洋房孤零零的佇立，周圍是被挖開的地面坍塌的墻壁和堆積的磚塊。</p>
+                            <p>一輛大型挖掘機停在洋房前。洋房裡有一家三口，年輕的夫婦和小男孩，小男孩的五官輪廓有點像魔眼天王。</p>
+                            <p>挖掘機履帶滾動鏟斗狠狠砸穿墻壁，摧毀承重柱，小洋房在搖晃中坍塌。樓內的一家三口抱在了一起。</p>
+                            <p>張元清連忙揮筆，抹去洋房，強勢打斷。幾秒後，洋房再次出現，開始重復上一輪的情景。</p>
+                            <p>“原來魔眼的父母是死于強拆，難怪他如此憎惡恃強凌弱。”夏侯傲天說。</p>
+                            <p>他看向張元清，問道:“這個該怎麼救”“魔眼的情況和宮主有點像，都渴望和父母一起共存亡。”張元清思索幾秒，故技重施，勾勒出火柴人。</p>
+                            <p>火柴人化成他的模樣，進入洋房“魔眼天王，跟著我清洗世界吧，不要在這裡浪費時間了。”張元清大聲說道。</p>
+                            <p>小男孩只是淡淡瞅他一眼，縮在母親懷裡，並沒有任何變化。</p>
+                            <p>“這都不行？”張元清皺起眉。</p>
+                            <p>“這都喚不醒他”夏侯傲天感慨道，清洗世界可是魔眼的畢生執念，張元清想了想，道:“魔眼天王這輩子最想要，其實不是清洗世界，而是公正，公正，還是特麼的公正。因為得不到才選釋清洗世界。”
+                            </p>
+                            <p>他從止殺宮主的幻境獲得靈感，打算試試救贖路線。</p>
+                            <p>張元清在壁畫中勾勒出執法隊伍，當著一家三口的面，阻止了挖掘機的強拆動作。</p>
+                            <p>讓人失望的一幕發生了，魔眼天王如同剛才那樣，躲在母親懷裡，抓著母親的衣角，沒有任何反應。</p>
+                            <p>“公正竟也不要了”張元清先是不解，繼而明白過來。</p>
+                            <p>魔眼天王從潛意識裡不輕相信執法隊伍，不相信官方。正如夏侯傲天潛意識裡，不允許配角染指他的鬼新娘。</p>
+                            <p>張元清只能一邊化解壁畫中的危機，一邊思考對策，夏侯傲天、止殺宮主在旁出謀劃策，連續嘗試數遍，都無法救出魔眼。</p>
+                            <p>“這家伙不愧是偏執狂，自毀傾向很嚴重，不肯接受救贖。”夏侯傲天評價道。</p>
+                            <p>“茅坑裡的臭石頭。”止殺宮主蹙眉道，一籌莫展之際，跟在張元清身邊的六長老輕，聲說道“主人，魔眼天王清洗世界執念有多強，,這段回憶帶給他的痛苦就有多深刻。自由職業和守序不同，魔眼天王不需要救贖，也不接受救贖。”
+                            </p>
+                            <p>“如果能這麼輕易接受救贖，早就和世界和解了。”張元清醍醐灌頂“對，我要做的是喚醒他的自我認知，不是救贖。”</p>
+                            <p>他有了思思考路，提起毛筆，點住小男孩，往外一拽。</p>
+                            <p>小男孩離開洋房來到了外面，挖掘機，轟隆動作，高舉著鏟斗，將洋房摧毀，年輕的夫婦葬身在廢墟中。</p>
+                            <p>小男孩怔怔的望著這這一幕，失去了所有表情。</p>
+                            <p>不知過了多久，小男孩轉身，朝著壁畫深處走去，背影孤單，像一只被人遺棄小狗。</p>
+                            <p>隨著小男孩漸行漸遠，壁畫消失。</p>
+                            <p>張元清嘆息道“喚醒魔眼自我認知其實很簡單，只需要讓他看著父母死在當年的魔眼天眼前。”</p>
+                            <p>洋房坍塌的瞬間，那個小男孩就死了，活下來的是心裡燃燒著復仇野火的魔眼天王。</p>
+                            <p>就這樣墻面泛起波紋，戴運動頭帶魔眼天王從壁畫中走了出來，他環顧眾人，最後看向張元清，勾起嘴角“裡得不錯。”</p>
+                            <p>張元清第一次從那雙眼睛裡，看到了深埋的痛苦和悲傷。</p>
+                            <p>他沒有回應魔眼說道:“走吧，我們該去錢公子了。”</p>
+                            <p>適音剛落，不遠處傳來傅青陽冷淡的聲音:“我已經出來了。”</p>
+                            <p>張元清手裡的金色火焰“轟”的高漲，照亮十幾步外的白衣身影，英俊逼人，身帶姿筆挺，正是傅青陽。</p>
+                            <p>“老大，你出來了”張元清欣喜道。</p>
+                            <p>夏侯傲天上上下下，仔仔細細審視錢公子，不甘心口問道“你怎麼出來的”</p>
+                            <p>錢公子面無表情，淡淡道“幻境而已，不難。”</p>
+                            <p>“不難”夏侯傲天心說，你你你，你要這麼裝的話，我可就生氣了。</p>
+                            <p>傅青陽看他一下，語氣平靜道:“我沒有恐懼的東西，即便有，也已經在現實裡斬了。”</p>
+                            <p>夏侯傲天頓時噎的說不出話來。比如傅家那群被你一刀一個同齡人嗎!張元清心說。</p>
+                            <p>隊友中，他最不擔心的就是錢公子。</p>
+                            <p>傅青陽是一個不會妥協的人，不和敵人妥協，更不和自己妥協，如果在死亡和逃避之間選一個的話，他會毫不猶豫的把劍斬向敵人。</p>
+                            <p>就像他當年追著家族裡同齡人砍，一把木劍丟向出面干預要求嚴懲的族老問他們是不是想死。</p>
+                            <p>錢公子的人生不存在心理陰影，因為所有的陰影都被他斬盡殺絕了。</p>
+                            <p>隨後在眾人來到最後一塊壁畫前，畫面中是一個垂垂老矣的婦人，面容枯構躺在床時，隨時都會撒手人寰，老婦人竭力保持清醒，不敢讓自己“睡”過去。</p>
+                            <p>“這人誰啊，銀瑤郡主”夏侯傲天差點沒認出來。</p>
+                            <p>都其他人的幻境都是跌宕起伏，兇險莫測，她的幻境，一間房一張床，僅此而已。</p>
+                            <p>“我這個不成器的孽徒師妹....”張元清無奈解釋道:“銀瑤郡主最怕的就是壽終正寢。，為了長生說，她盜取了三道山娘娘棺槨，用秘法把自己煉成了陰屍，沉眠于棺中。”</p>
+                            <p>這時候要是畫一個三道山娘娘出來，銀瑤郡主恐怕會嚇的當場去世了!他心說。“某種角度來說，和夏侯傲天挺像。”止殺宮主戲謔道。</p>
+                            <p>傅青陽旁觀了片刻，道:“她的恐懼很簡單，畏懼死亡罷了。你只需要給予她些暗示，讓她記起自己是陰屍就行。。”</p>
+                            <p>就像暗示夏侯傲天那樣，張元清提筆在壁畫中勾勒出三個物件：鬼鏡、陰玉娃娃和血胭脂。</p>
+                            <p>三件物品“啪嗒”落在老婦人的床上，引來了她注意。老婦人翹起頭，艱難的看向三件物品，然後她懵住了。</p>
+                            <p>保持翹頭懵逼姿勢許久，她似乎想起自己早就成了陰屍，以一種老大太不該有敏捷掀開被子，彈身而起。</p>
+                            <p>壁畫自動熄滅，銀瑤郡主從壁畫中走出來，眾人如釋重負。</p>
+                            <p>而，這時，墻壁浮現出一道道水墨風格的人影，他們握著劍，擺出不同的姿勢.，就像武俠裡的劍術秘籍。</p>
+                            <p>張元清等人只是看了幾眼，就感覺眼球刺痛，流下熱淚，紛紛低頭。</p>
+                            <p>只有傅青陽昂起頭凝，視著滿墻的劍譜，道“很精妙的劍術，刻畫劍譜的人，把自己的意志融入其中，過了這麼多年還沒散去。”</p>
+                            <p>低著頭的張元清恍然大悟:“難怪壁畫會被污染，我就說嘛，普通壁畫就算受到陰氣滋養，也不會具備如此神異。”</p>
+                            <p>傅青陽道:“元始，帶我轉一圈。”張元清微微頷首示意。</p>
+                            <p>兩人繞著墻壁並肩而行，傅青陽邊看邊說:“好好吃透這些劍術，至少能用到八級。”</p>
+                            <p>“老大你不是醉心于斬擊，不屑學習劍術嗎。”張元清說。</p>
+                            <p>傅青陽沉聲道:“我的斬擊到瓶頸了，新領悟出的劍意又是以燃燒生命為代價，不到萬的不得已，不能使用。想更進一步，就得擴充眼界，思熔百家于一爐。”</p>
+                            <p>作為八級主宰，傅青陽看過一遍，就將滿墻的劍術牢牢記在心裡。眾人離開正氣殿，前往南苑最後一層。</p>
+                            <p>最後一關能找到白帝冠，張元清在心裡默默祈禱，然後說道:“按照副本強度，最後一關可能會遇到九級主宰。”</p>
+                            <p>傅青陽卻搖了搖頭:“亡國之君副本強度不正常，不能作為參考標準。”</p>
+                            <p>他不信這麼倒霉，又遇到靈境bug，兩人說話間，夏侯傲天取出無人機，照例探查。</p>
+                            <p>無人機群在螺旋槳的嗡嗡聲裡，穿過無形的薄膜，進入三秒後，夏侯傲天睜開眼情，滿臉凝重:“無人機被破壞了，我看到了鬼燈，綠色的鬼燈，到處都是，除了這些，他沒有收獲。”</p>
+                            <p>“無人機是在一瞬間被破壞的，我看不到攻擊者。”夏侯傲天無奈道。剛一進入就遇到攻擊了連探索的機會都不給，其他人交換了一個眼神，本就凝重的表情更加嚴肅了。</p>
+                            <p>張元清取出小紅帽，抖出一具陰屍。</p>
+                            <p>“我來吧，陰屍比無人機存活率高，沒準我能看到敵人。”他操縱著陰屍穿過無形薄膜。</p>
+                            <p>約莫半分鐘，像張元清腦袋猛地後，像是被人迎面敲了一棍，眼眶裡的眼球爆碎，流出兩行猩紅的血水。</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <div class="text-center mb-4">
+                <a href="#" title="第九十八章 壁畫">上一章</a> |
+                <a href="./catalog.html">靈境行者目錄</a> |
+                <a href="./articlereading100.html" title="第一百章 七星燈陣">下一章</a>
+            </div>
+        </article>
+    </section>
+    <!-- 尾頁 -->
+    <footer class="footer container-fluid">
+        <div class="declaim row">
+            <b>文章來源自各大平台，其版權屬於原創作者或上載平台，若有疑慮，請立即來信，將進行刪除動作。</b>
+        </div>
+        <div class="me-3 row">
+            <div id="mail" class="modal fade" tabindex="-1" data-bs-backdrop="static">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">聯絡我們</h5>
+                            <button type="button" class="btn-close" id="closeBtn" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-start">
+                            <p>敬愛的讀者您好：</p>
+                            <p>可經由站內信或是利用以下e-mail寄信給我們</p>
+                            <p class="text-end">溫火小說網全體員工敬上。</p>
+                            <p>e-mail : <span onclick="copy()" id="copyemail">Abcde@gmail.com<img src="../imgs/copy.png"
+                                        style="height: 20px;width: 20px;cursor: pointer;">
+                                </span>
+                            </p>
+                            <label for="question">問題類型：</label>
+                            <select name="" id="question">
+                                <option value="">書籍推薦</option>
+                                <option value="">問題回饋</option>
+                                <option value="">用戶體驗</option>
+                            </select>
+                            <br>
+                            <label for="comment">問題內容 :</label>
+                            <form action="" class="mt-2">
+                                <textarea id="comment" cols="42" rows="10" class="p-2 form-control"></textarea>
+                                <br>
+                                <div class="modal-footer pe-0">
+                                    <button style="background-color: var(--bs-warning);" class="btn"
+                                        id="comment">送出評論</button>
+                                    <button type="button" class="btn btn-secondary" id="cancelBtn"
+                                        data-bs-dismiss="modal">取消</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 d-flex justify-content-between">
+                <button class="js-back-to-top btn rounded-circle back-to-top">^ 回到頂部</button>
+                <span id="mailIcon2" style="cursor: pointer;margin: auto 0;" data-bs-toggle="modal"
+                    data-bs-target="#mail">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

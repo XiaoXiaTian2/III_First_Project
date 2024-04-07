@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>溫火小說網_會員登入</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fff5ee;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            font-weight: bold;
+        }
+
+        h2:hover {
+            color: orangered;
+            transform: translate(-5px, -5px);
+        }
+
+        .register-container {
+            /* background-color: #fff5ee; */
+            background-color: rgb(252, 251, 219);
+            border: 2px solid black;
+            border-radius: 35px;
+            padding: 30px;
+        }
+
+        form label {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        form input {
+            margin-bottom: 12px;
+        }
+
+        .inputContainer input {
+            width: 300px;
+        }
+
+        .inputContainer input:valid {
+            color: lightseagreen;
+        }
+
+        form input:focus {
+            border-color: rgb(255, 153, 0) !important;
+            box-shadow: none !important;
+        }
+
+        .inputContainer {
+            position: relative;
+        }
+
+        .inputContainer label {
+            display: block;
+        }
+
+        .inputContainer label:hover {
+            color: rgb(255, 115, 0);
+        }
+
+        .regBtn {
+            color: yellow;
+            background-color: rgb(255, 99, 71);
+            border: 2px solid bisque;
+        }
+
+        .regBtn:hover {
+            color: rgb(255, 99, 71);
+            background-color: yellow;
+            border: 2px solid bisque;
+            box-shadow: 0 0 5px 5px gold;
+        }
+
+        .regBtn:active {
+            border: inset yellow;
+            background-color: gold;
+        }
+
+        @media screen and (max-width:460px) {
+            .register-container {
+                border: none;
+                width: 100%;
+            }
+
+            .inputContainer {
+                width: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="register-container">
+        <div class="text-center mb-3">
+            <h2>會員註冊</h2>
+        </div>
+        <form class="ps-5 pe-5">
+            <div class="inputContainer">
+                <label for="registerEmail" class="">電子郵件：</label>
+                <input type="email" class="form-control" id="registerEmail" placeholder="請輸入電子郵件" required>
+            </div>
+            <div class="inputContainer">
+                <label for="registerPassword" class="">密碼 (6~12字母數字，開頭字母)：</label>
+                <input type="password" class="form-control" id="registerPassword" pattern="^[A-Za-z]+[\dA-Za-z]+"
+                    minlength="6" maxlength="12" placeholder="請輸入密碼" required>
+            </div>
+            <div class="inputContainer">
+                <label for="registerPasswordConfirmed" class="">再次輸入密碼：</label>
+                <input type="password" class="form-control" id="registerPasswordConfirmed"
+                    pattern="^[A-Za-z]+[\dA-Za-z]+" minlength="6" maxlength="12" placeholder="請再次輸入密碼" required>
+            </div>
+            <div class="inputContainer">
+                <label for="registerFakeName" class="">暱稱(10字元)：</label>
+                <input type="text" class="form-control" id="registerFakeName" maxlength="10" placeholder="請輸入暱稱"
+                    required>
+            </div>
+            <div class="text-center p-2"><input type="checkbox" id="checkConfirm"><label style="display: inline-block;"
+                    for="checkConfirm">已閱讀過<a href="" style="color: rgb(255, 102, 0);">免責聲明</a></label>
+            </div>
+            <div class="text-center pb-3"><button class="btn regBtn" onclick="register()">註冊帳號</button>
+            </div>
+            <div style="text-align: center;color: lightslategrey;">已經有帳號了嗎？<a style="color: rgb(255, 128, 0);"
+                    href="./LoginUsing.html">登入</a>
+            </div>
+        </form>
+    </section>
+
+    <!-- <script src="./main.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function register() {
+            var regID = document.getElementById('registerEmail').value;
+            var regPWD = document.getElementById('registerPassword').value;
+            var regPWD2 = document.getElementById('registerPasswordConfirmed').value;
+            var regName = document.getElementById('registerFakeName').value;
+            var theboxchecked = document.getElementById('checkConfirm');
+            event.preventDefault();
+            if (regID.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.((com)|(tw))+$/gm) != -1) {
+                if (regPWD === regPWD2) {
+                    if (theboxchecked.checked) {
+                        localStorage.setItem('userID', regID);
+                        localStorage.setItem('userPWD', regPWD);
+                        localStorage.setItem('userName', regName);
+                        alert('註冊成功!');
+                        document.location.href = './LoginUsing.html';
+                    } else {
+                        alert('尚未勾選閱讀按鈕！');
+                    }
+                } else {
+                    alert('兩次密碼輸入不相同，請重新輸入！');
+                    document.getElementById('registerPassword').value = '';
+                    document.getElementById('registerPasswordConfirmed').value = '';
+                }
+            } else {
+                alert('電子郵件格式有誤，請修正！');
+            }
+        }
+    </script>
+    
+</body>
+
+</html>

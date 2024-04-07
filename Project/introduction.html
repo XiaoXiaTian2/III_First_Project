@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>賣報小郎君_靈境行者</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./Shiningtest.css">
+    <!-- 回到頂部 -->
+    <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <!-- 導覽列 -->
+    <header class="container-lg">
+        <div class="row mt-3">
+            <div class="col-4 col-lg-3 text-center">
+                <a href="./Homepage.html" class="">
+                    <img src="../imgs/logo.png" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-8 col-lg-6 text-center m-auto">
+                <div class="d-flex">
+                    <!-- 搜索功能 -->
+                    <input type="text" id="searchBar" class="ps-3" placeholder="輸入查詢的作者或書名">
+                    <button class="btn btn-sm" id="searchBtn" onclick="searchTo()">搜索</button>
+                </div>
+            </div>
+            <div class="col-lg-3 text-center">
+                <ul class="userNav">
+                    <li class=""><a class="btn btn-sm mb-3 rounded-circle" href="./LoginUsing.html">登入</a></li>
+                    <li class=""><a class="btn btn-sm rounded-circle" href="./register.html">註冊</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- 分類標籤 -->
+    <nav class="navbar navbar-warning navbar-expand-lg">
+        <div class="container-lg">
+            <a class="navbar-brand" href="#"></a>
+            <button style="background-color: #F77744;" class="navbar-toggler mb-3" type="button"
+                data-bs-toggle="offcanvas" data-bs-target="#categoryNavbar" aria-controls="offcanvasNavbar">
+                <!-- 漢堡包圖案 -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="categoryNavbar"
+                aria-labelledby="categoryNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title m-3" id="categoryNavbarLabel"
+                        style="font-size: 30px;font-weight: bolder;">小說分類</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="userNav2" style="display: none;">
+                        <a class="btn btn-sm mb-3 rounded-circle" href="./LoginUsing.html">登入</a>
+                        <a class="btn btn-sm mb-3 rounded-circle" href="./register.html">註冊</a>
+                    </div>
+                    <ul class="flex-grow-1 justify-content-center navbar-nav" id="category">
+                        <a href="./Homepage.html">
+                            <li>首頁</li>
+                        </a>
+                        <hr>
+                        <a href="">
+                            <li>玄幻</li>
+                        </a>
+                        <a href="">
+                            <li>科技</li>
+                        </a>
+                        <a href="">
+                            <li>歷史</li>
+                        </a>
+                        <a href="">
+                            <li>言情</li>
+                        </a>
+                        <a href="">
+                            <li>競技</li>
+                        </a>
+                    </ul>
+                    <span id="mailIcon" style="cursor: pointer;margin: auto 0;" data-bs-toggle="modal"
+                        data-bs-target="#mail">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-lg mb-2">
+        <div class="row">
+            <div class="col mb-2"><a href="./Homepage.html">首頁</a>／靈境行者</div>
+        </div>
+    </div>
+    <section class="container-lg">
+        <div class="row">
+            <div class="col-xl-9">
+                <div class="row" style="background: #FFf8DC;
+                background: -moz-linear-gradient(top, #FFf8DC 0%, #FFFFFF 100%);
+                background: -webkit-linear-gradient(top, #FFf8DC 0%, #FFFFFF 100%);">
+                    <div class="col-12 col-xl-3 text-center">
+                        <img src=" ../imgs/lingjing.jpg" class="mt-xl-2">
+                    </div>
+                    <!-- 書本介紹頁 -->
+                    <div class="col-12 col-xl-9">
+                        <div style="text-align: center;margin: 20px;">
+                            <h1 style="font-weight: bold;">靈境行者</h1>
+                        </div>
+                        <div>
+                            <p>作者 : <a href="#" style="color: black;">賣報小郎君</a></p>
+                            <p>標籤：無</p>
+                            <p>內容簡介 : 亙古通今，傳聞世有靈境。 關于靈境的說法，歷朝歷代的名人雅士眾說紛壇，詩中記載： “自齊至唐，茲山濅荒，靈境寂寥，罕有人游。” “靈境不可狀，鬼工諒難求。”</p>
+                            <div class="text-center border" style="background: #FFf8DC;
+                            background: -moz-linear-gradient(top, #FFf8DC 0%, #FFFFFF 100%);
+                            background: -webkit-linear-gradient(top, #FFf8DC 0%, #FFFFFF 100%);">
+                                <button class="btn mt-3 mb-3 btn-warning" onclick="location.href = './catalog.html'">閱讀目錄</button>
+                                <button class="btn mt-3 mb-3 btn-warning" id="collection" onclick="collect(this)">收藏此書</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-12">
+                        <!-- 最新章節 -->
+                        <table style="border-spacing: 2px;width: 100%;table-layout: fixed;">
+                            <tbody>
+                                <tr colspan="">
+                                    <td style="font-size: 28px;">
+                                        靈境行者最新章節
+                                        <hr>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="articlereading101.html">第一百零一章 尋找陣眼</a></td>
+                                    <td class="chapterlisttitle"><a href="articlereading100.html">第一百章 七星燈陣</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="articlereading99.html">第九十九章 各自的恐懼(7000)</a>
+                                    </td>
+                                    <td class="chapterlisttitle"><a href="#">第九十八章 壁畫</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第九十七章 消失的他</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第九十六章 祭祀之舞</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第九十五章 黃葫蘆</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第九十四章 激斗</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第九十三章 插旗</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第九十二章 瑤光殿</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第九十一章 蜀山南苑</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第九十章 快速晉升之法</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第八十九章 復活方案</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第八十八章 討論與分析</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第八十七章 不良帥</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第八十六章 凍結一切的深淵</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第八十五章 見人</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第八十四章 時不我待</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第八十三章 越來越多的bug</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第八十二章 通關獎勵</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第八十一章 可憐白髮生</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第八十章 古來征戰幾人回</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第七十九章 了卻君王天下事，贏得生前身後名</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第七十八章 三招三條命</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第七十七章 一波剛平一波又起</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第七十六章 偷家</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第七十五章 陰物</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第七十四章 當死則死</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第七十三章 請君入甕</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第七十二章 臭棋簍子</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第七十一章 決戰在即</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第七十章 請兩位赴死</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第六十九章 生存</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第六十八章 對弈</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第六十七章 慷慨陳詞</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第六十六章 祭天</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第六十五章 籌備</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第六十四章 靈仆</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第六十三章 道袍女子</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第六十二章 分頭行動</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="#">第六十一章 完成支線任務</a></td>
+                                    <td class="chapterlisttitle"><a href="#">第六十章 長街追逐</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="">第五十九章 我，元始天尊，打錢</a></td>
+                                    <td class="chapterlisttitle"><a href="">第五十八章 逃脫</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="chapterlisttitle"><a href="">第五十七章 階下囚</a></td>
+                                    <td class="chapterlisttitle"><a href="">第五十六章 徐長老</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <!-- 評論區 -->
+                <div class="row">
+                    <p style="font-size: 32px;">評論區</p>
+                    <ul id="commented"></ul>
+                    <p id="commentArea">
+                        <label for="comment" class="mb-3">留下評論：<a class="text-decoration-underline"
+                                href="./LoginUsing.html">登入</a>後使用</label>
+                    </p>
+                    <form class="mb-3 ">
+                        <textarea style="border: 2px solid yellowgreen;" id="commenttxt" class="form-control"
+                            rows="10"></textarea>
+                        <br>
+                        <button class="btn" id="commentBtn" disabled onclick="submitcomment()">送出評論</button>
+                    </form>
+                </div>
+                <hr>
+            </div>
+            <div class="col-xl-3 ps-4 rankContainer">
+                <div class="row rank" style="border:2px solid rgba(220, 20, 60, 0.1);">
+                    <div class="mb-2 d-flex justify-content-between">
+                        <h3>同類小說排行
+                        </h3><img src="../imgs/book.png" style="height: calc(1.3rem + .6vw);">
+                    </div>
+                    <ol>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle"
+                                style="color: hsl(57, 100%, 59%);background-color: gold">1</span><a
+                                href="introduction.html">靈境行者</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle"
+                                style="color: gray;background-color: silver">2</span><a href="">從紅月開始</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle"
+                                style="color: brown;background-color: rgb(234, 97, 97)">3</span><a href="">黃昏分界</a></li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">4</span><a href="">重生星際喵喵喵</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">5</span><a href="">九星之主</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">6</span><a href="">無限之美劇空間</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">7</span><a href="">死神列車</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">8</span><a href="">神紋戰記</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">9</span><a href="">人間冰器</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">10</span><a
+                                href="">進化的四十六億重奏</a></li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">11</span><a href="">完美戰神</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">12</span><a href="">不死神象</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">13</span><a href="">無限之最強進化</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">14</span><a href="">天啟之夜</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">15</span><a href="">一拳殲星</a>
+                        </li>
+                    </ol>
+
+                </div>
+                <br>
+                <div class="row rank" style="border: 2px solid rgba(255, 127, 80, 0.3);">
+                    <div class="mb-2 d-flex justify-content-between">
+                        <h3>收藏排行</h3><img src="../imgs/star.png" style="height: calc(1.3rem + .6vw);">
+                    </div>
+                    <ol>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle"
+                                style="color: hsl(57, 100%, 59%);background-color: gold">1</span><a href="#">龍血戰神</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle"
+                                style="color: gray;background-color: silver">2</span><a href="#">武道至尊</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle"
+                                style="color: brown;background-color: rgb(234, 97, 97)">3</span><a href="#">少年醫仙</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">4</span><a href="#">神醫相師</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">5</span><a href="#">武煉巔峰</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">6</span><a href="">神醫相師</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">7</span><a href="">完美世界</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">8</span><a href="">莽荒紀</a></li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">9</span><a href="">雪鷹領主</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">10</span><a href="">聖墟</a></li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">11</span><a href="">元尊</a></li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">12</span><a href="">擇天記</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">13</span><a href="">修真聊天群</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">14</span><a href="">永夜君王</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">15</span><a href="">神藏</a></li>
+                    </ol>
+                </div>
+                <br>
+                <div class="row rank" style="border: 2px solid rgba(255, 255, 0, 0.3);">
+                    <div class="mb-2 d-flex justify-content-between">
+                        <h3>最新上傳排行</h3><img src="../imgs/upload.png" style="height: calc(1.3rem + .6vw);">
+                    </div>
+                    <ol>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle"
+                                style="color: hsl(57, 100%, 59%);background-color: gold">1</span><a
+                                href="#">我師叔他權傾天下</a>
+                        </li>
+                        <li class="d-flex mb-2">
+                            <span class="text-center rounded-circle" style="color: gray;background-color: silver">
+                                2</span><a href="#">獨步成仙</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle"
+                                style="color: brown;background-color: rgb(234, 97, 97)">3</span><a href="#">萬貫娘子</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">4</span><a href="#">凡女修仙錄</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">5</span><a href="#">好戲登場</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">6</span><a href="">帝國第一駙馬</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">7</span><a href="">落難情緣</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">8</span><a href="">異域天境</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">9</span><a href="">蕭城龍興</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">10</span><a href="">江湖似月牙</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">11</span><a href="">光約</a></li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">12</span><a href="">黑土龍魂</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">13</span><a href="">逍遙小捕快</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">14</span><a href="">窈窕春色</a>
+                        </li>
+                        <li class="d-flex mb-2"><span class="text-center rounded-circle">15</span><a href="">女神的超級贅婿</a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 尾頁 -->
+    <footer class="footer container-fluid">
+        <div class="declaim row">
+            <b>文章來源自各大平台，其版權屬於原創作者或上載平台，若有疑慮，請立即來信，將進行刪除動作。</b>
+        </div>
+        <div class="me-3 row">
+            <div id="mail" class="modal fade" tabindex="-1" data-bs-backdrop="static">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">聯絡我們</h5>
+                            <button type="button" class="btn-close" id="closeBtn" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-start">
+                            <p>敬愛的讀者您好 : </p>
+                            <p>可經由站內信或是利用以下e-mail寄信給我們</p>
+                            <p class="text-end">溫火小說網全體員工敬上。</p>
+                            <p>e-mail : <span onclick="copy()" id="copyemail">Abcde@gmail.com<img src="../imgs/copy.png"
+                                        style="height: 20px;width: 20px;cursor: pointer;">
+                                </span>
+                            </p>
+                            <label for="question">問題類型 : </label>
+                            <select name="" id="question">
+                                <option value="">書籍推薦</option>
+                                <option value="">問題回饋</option>
+                                <option value="">用戶體驗</option>
+                            </select>
+                            <br>
+                            <label for="comment">問題內容：</label>
+                            <form action="" class="mt-2">
+                                <textarea id="comment" cols="42" rows="10" class="p-2 form-control"></textarea>
+                                <br>
+                                <div class="modal-footer pe-0">
+                                    <button style="background-color: var(--bs-warning);" class="btn"
+                                        id="comment">送出評論</button>
+                                    <button type="button" class="btn btn-secondary" id="cancelBtn"
+                                        data-bs-dismiss="modal">取消</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 d-flex justify-content-between">
+                <button class="js-back-to-top btn rounded-circle back-to-top">^ 回到頂部</button>
+                <span id="mailIcon2" style="cursor: pointer;margin: auto 0;" data-bs-toggle="modal"
+                    data-bs-target="#mail">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./main.js"></script>
+    <script>
+        if (localStorage.getItem('userID') == 'abc@gmail.com' && localStorage.getItem('userPWD') == 'a11111') {
+            document.getElementById('commentArea').innerHTML = `<a href="">${localStorage.getItem('userName')}&nbsp;&nbsp;</a><label for="comment" class="mb-3">
+                 :</label>`;
+            document.getElementById('commentBtn').disabled = false;
+        }
+
+        var Collection = document.getElementById('collection');
+        var getItem = localStorage.getItem('status');
+        if(getItem == null){
+            localStorage.setItem('status', Collection.innerText);
+        }else{
+            Collection.innerText = getItem;
+        }
+
+        function collect(para) {
+            event.preventDefault();
+            if (localStorage.getItem('userID') == 'abc@gmail.com' && localStorage.getItem('userPWD') == 'a11111') {
+                if (getItem === '收藏此書') {
+                    Collection.innerHTML = '取消收藏';
+                    localStorage.setItem('status', '取消收藏');
+                } else {
+                    Collection.innerHTML = '收藏此書';
+                    localStorage.setItem('status', '收藏此書');
+                }
+            } else {
+                alert('請先登入！');
+            }
+        }
+        // localStorage.clear();
+        function submitcomment() {
+            var submitbtn = document.getElementById('commentBtn');
+            var comment = document.getElementById('commenttxt');
+            var commentSet = document.getElementById('commented');
+            event.preventDefault();
+            if (comment.value === "") {
+                alert('請輸入評論！');
+            } else {
+                var li = document.createElement('li');
+                var person = document.createElement('span');
+                var c = document.createElement('span');
+                person.style.textDecoration = 'underline';
+                person.innerText = localStorage.getItem('userName');
+                li.appendChild(person);
+                li.innerText += '：';
+                li.appendChild(c);
+                c.innerHTML += comment.value;
+                // 留言字樣的樣式
+                li.style.fontSize = '18px';
+                li.style.position = 'relative';
+                li.setAttribute('class', 'mb-3 border-bottom');
+                comment.value = "";
+                commentSet.appendChild(li);
+
+                // 編輯按鈕
+                var edit = document.createElement('a');
+                // 編輯按鈕的樣式
+                edit.innerText = '編輯';
+                edit.style.fontSize = '14px';
+                edit.setAttribute('class', 'float-end');
+                edit.style.bottom = '2px';
+                edit.style.right = '5px';
+                edit.style.position = 'absolute';
+                // 將編輯按鈕放進評論
+                li.appendChild(edit);
+
+                // 刪除按鈕
+                var del = document.createElement('a');
+                // 刪除按鈕的樣式
+                del.innerText = '刪除';
+                del.style.fontSize = '14px';
+                del.setAttribute('class', ' float-end');
+                del.style.bottom = '2px';
+                del.style.right = '50px';
+                del.style.position = 'absolute';
+                // 將刪除按鈕放進評論
+                li.appendChild(del);
+
+                // 時間
+                var dd = new Date();
+                var Time = `${dd.getFullYear()}/${(dd.getMonth() + 1).toString().padStart("2", "0")}/${dd.getDate().toString().padStart("2", "0")} ${dd.getHours().toString().padStart("2", "0")}:${dd.getMinutes().toString().padStart("2", "0")}:${dd.getSeconds().toString().padStart("2", "0")}`
+                var TimeExp = document.createElement('div');
+                TimeExp.innerText = Time;
+                TimeExp.style.fontSize = '14px';
+                TimeExp.style.bottom = '1px';
+                TimeExp.style.right = '98px';
+                TimeExp.style.position = 'absolute';
+                li.appendChild(TimeExp);
+            }
+
+            // 觸發刪除功能
+            del.onclick = () => {
+                del.parentNode.remove();
+            }
+
+            // 觸發編輯功能
+            edit.onclick = () => {
+                var i = prompt("編輯留言", c.innerText);
+                if (i === "" || i === null) {
+                    alert('編輯不得為空！');
+                } else {
+                    c.innerText = i;
+                    // 編輯完重新添加
+                    // li.appendChild(edit);
+                    // li.appendChild(del);
+                }
+            }
+            // 刪除按鈕hover效果
+            del.onmouseover = () => {
+                del.style.color = 'red';
+                del.style.cursor = 'pointer';
+            }
+            // 刪除按鈕離開效果
+            del.onmouseout = () => {
+                del.style.color = 'black';
+            }
+            // 刪除按鈕active效果
+            del.onmousedown = () => {
+                del.style.textDecoration = 'line-through';
+            }
+            // 編輯按鈕hover效果
+            edit.onmouseover = () => {
+                edit.style.color = 'darkgreen';
+                edit.style.cursor = 'pointer'
+            }
+            // 編輯按鈕離開效果
+            edit.onmouseout = () => {
+                edit.style.color = 'black';
+            }
+            // 編輯按鈕active效果
+            edit.onmousedown = () => {
+                edit.style.textDecoration = 'underline';
+            }
+            // 編輯按鈕滑鼠按下後離開
+            edit.onmouseup = ()=> {
+                edit.style.textDecoration = 'none';
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

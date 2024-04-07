@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>靈境行者章節目錄</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./Shiningtest.css">
+    <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <header class="container-lg">
+        <div class="row mt-3">
+            <div class="col-4 col-lg-3 text-center">
+                <a href="./Homepage.html" class="">
+                    <img src="../imgs/logo.png" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-8 col-lg-6 text-center m-auto">
+                <div class="d-flex">
+                    <!-- 搜索功能列 -->
+                    <input type="text" id="searchBar" class="ps-3" placeholder="輸入查詢的作者或書名">
+                    <button class="btn btn-sm" id="searchBtn" onclick="searchTo()">搜索</button>
+                </div>
+            </div>
+            <div class="col-lg-3 text-center">
+                <ul class="userNav">
+                    <li class=""><a class="btn btn-sm mb-3 rounded-circle" href="./LoginUsing.html">登入</a></li>
+                    <li class=""><a class="btn btn-sm rounded-circle" href="./register.html">註冊</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- 分類標籤 -->
+    <nav class="navbar navbar-warning navbar-expand-lg">
+        <div class="container-lg">
+            <a class="navbar-brand" href="#"></a>
+            <button style="background-color: #F77744;" class="navbar-toggler mb-3" type="button"
+                data-bs-toggle="offcanvas" data-bs-target="#categoryNavbar" aria-controls="offcanvasNavbar">
+                <!-- 漢堡包圖案 -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="categoryNavbar"
+                aria-labelledby="categoryNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title m-3" id="categoryNavbarLabel"
+                        style="font-size: 30px;font-weight: bolder;">小說分類</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="userNav2" style="display: none;">
+                        <a class="btn btn-sm mb-3 rounded-circle" href="./LoginUsing.html" href="">登入</a>
+                        <a class="btn btn-sm mb-3 rounded-circle" href="">註冊</a>
+                    </div>
+                    <ul class="flex-grow-1 justify-content-center navbar-nav" id="category">
+                        <a href="./Homepage.html">
+                            <li>首頁</li>
+                        </a>
+                        <hr>
+                        <a href="">
+                            <li>玄幻</li>
+                        </a>
+                        <a href="">
+                            <li>科技</li>
+                        </a>
+                        <a href="">
+                            <li>歷史</li>
+                        </a>
+                        <a href="">
+                            <li>言情</li>
+                        </a>
+                        <a href="">
+                            <li>競技</li>
+                        </a>
+                    </ul>
+                    <span id="mailIcon" style="cursor: pointer;margin: auto 0;" data-bs-toggle="modal"
+                        data-bs-target="#mail">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-lg mt-2">
+        <div class="row">
+            <div class="col"><a href="./Homepage.html">首頁</a>／<a href="./introduction.html">靈境行者</a>／靈境行者目錄</div>
+        </div>
+    </div>
+    <div class="text-center mb-5 mt-3">
+        <h2 class="fw-bold">靈境行者</h2>
+    </div>
+    <section class="container-lg mb-5">
+        <div class="row chapterlist">
+            <div class="col-lg-4 col-6"><a href="">第一章 禮物</a></div>
+            <div class="col-lg-4 col-6"><a href="">第二章 失蹤</a></div>
+            <div class="col-lg-4 col-6"><a href="">第三章 角色卡</a></div>
+            <div class="col-lg-4 col-6"><a href="">第四章 詭異降臨</a></div>
+            <div class="col-lg-4 col-6"><a href="">第五章 古廟</a></div>
+            <div class="col-lg-4 col-6"><a href="">第六章 山神廟的故事</a></div>
+            <div class="col-lg-4 col-6"><a href="">第七章 回歸</a></div>
+            <div class="col-lg-4 col-6"><a href="">第八章 聯絡（加更）</a></div>
+            <div class="col-lg-4 col-6"><a href="">第九章 靈境</a></div>
+            <div class="col-lg-4 col-6"><a href="">第十章 s級試煉靈境</a></div>
+            <div class="col-lg-4 col-6"><a href="">第十一章 BUG級靈境</a></div>
+            <div class="col-lg-4 col-6"><a href="">第十二章 佘靈隧道詳細資料</a></div>
+            <div class="col-lg-4 col-6"><a href="">第十三章 再入山神廟</a></div>
+            <div class="col-lg-4 col-6"><a href="">第十四章 探索東院</a></div>
+            <div class="col-lg-4 col-6"><a href="">第十五章 紅舞鞋</a></div>
+            <div class="col-lg-4 col-6"><a href="">第十六章 未曾探索之地</a></div>
+            <div class="col-lg-4 col-6"><a href="">第十七章 詭異之源</a></div>
+            <div class="col-lg-4 col-6"><a href="">第十八章 通關s級試煉任務</a></div>
+            <div class="col-lg-4 col-6"><a href="">第十九章 通話</a></div>
+            <div class="col-lg-4 col-6"><a href="">第二十章 以德服人</a></div>
+            <div class="col-lg-4 col-6"><a href="">第二十一章 不同</a></div>
+            <div class="col-lg-4 col-6"><a href="">第二十二章 夜游神會議</a></div>
+            <div class="col-lg-4 col-6"><a href="">第二十三章 兇殺案</a></div>
+            <div class="col-lg-4 col-6"><a href="">第二十四章 兇手</a></div>
+            <div class="col-lg-4 col-6"><a href="">第二十五章 手無縛雞之力</a></div>
+            <div class="col-lg-4 col-6"><a href="">第二十六章 潛逃</a></div>
+            <div class="col-lg-4 col-6"><a href="">第二十七章 人生百態</a></div>
+            <div class="col-lg-4 col-6"><a href="">第二十八章 表姐</a></div>
+            <div class="col-lg-4 col-6"><a href="">第二十九章 初戰</a></div>
+            <div class="col-lg-4 col-6"><a href="">第三十章 斬殺</a></div>
+            <div class="col-lg-4 col-6"><a href="">第三十一章 掩蓋</a></div>
+            <div class="col-lg-4 col-6"><a href="">第三十二章 大事件</a></div>
+            <div class="col-lg-4 col-6"><a href="">第三十三章 墮落聖杯</a></div>
+            <div class="col-lg-4 col-6"><a href="">第三十四章 意料之外的“客人”</a></div>
+            <div class="col-lg-4 col-6"><a href="">第三十五章 嬰靈</a></div>
+            <div class="col-lg-4 col-6"><a href="">第三十六章 面談</a></div>
+            <div class="col-lg-4 col-6"><a href="">第三十七章 魔君傳人</a></div>
+            <div class="col-lg-4 col-6"><a href="">第三十八章 調查</a></div>
+            <div class="col-lg-4 col-6"><a href="">第三十九章 他</a></div>
+            <div class="col-lg-4 col-6"><a href="">第四十章 巫蠱師</a></div>
+            <div class="col-lg-4 col-6"><a href="">第四十一章 禍水東引</a></div>
+            <div class="col-lg-4 col-6"><a href="">第四十二章 三道山娘娘</a></div>
+            <div class="col-lg-4 col-6"><a href="">第四十三章 變故和舊疾</a></div>
+            <div class="col-lg-4 col-6"><a href="">第四十四章 范圍擴大</a></div>
+            <div class="col-lg-4 col-6"><a href="">第四十五章 兵哥的線索</a></div>
+            <div class="col-lg-4 col-6"><a href="">第四十六章 第二次靈境開啟</a></div>
+            <div class="col-lg-4 col-6"><a href="">第四十七章 金水游樂園</a></div>
+            <div class="col-lg-4 col-6"><a href="">第四十八章 S級難度</a></div>
+            <div class="col-lg-4 col-6"><a href="">第四十九章 絕境？</a></div>
+            <div class="col-lg-4 col-6"><a href="">第五十章 隊長的權力（第二更）</a></div>
+            <div class="col-lg-4 col-6"><a href="">第五十一章 地下停車場</a></div>
+            <div class="col-lg-4 col-6"><a href="">第五十二章 所有人都要死</a></div>
+            <div class="col-lg-4 col-6"><a href="">第五十三章 破局之法</a></div>
+            <div class="col-lg-4 col-6"><a href="">第五十四章 終于死了</a></div>
+            <div class="col-lg-4 col-6"><a href="">第五十五章 冥婚（感謝“_white_”的白銀盟）</a></div>
+            <div class="col-lg-4 col-6"><a href="">第五十六章 婚帖</a></div>
+            <div class="col-lg-4 col-6"><a href="">第五十七章 聘禮</a></div>
+            <div class="col-lg-4 col-6"><a href="">第五十八章 鬼新娘</a></div>
+            <div class="col-lg-4 col-6"><a href="">第五十九章 偵探推理館（完）</a></div>
+            <div class="col-lg-4 col-6"><a href="">第六十章 回歸</a></div>
+            <div class="col-lg-4 col-6"><a href="">第六十一章 匯報</a></div>
+            <div class="col-lg-4 col-6"><a href="">第六十二章 來自過去的談話</a></div>
+            <div class="col-lg-4 col-6"><a href="">第六十三章 錯綜復雜的內幕</a></div>
+            <div class="col-lg-4 col-6"><a href="">第六十四章 謝家千金</a></div>
+            <div class="col-lg-4 col-6"><a href="">第六十五章 靈境世家</a></div>
+            <div class="col-lg-4 col-6"><a href="">第六十六章 前往目的地</a></div>
+        </div>
+    </section>
+    <!-- 尾頁 -->
+    <footer class="footer container-fluid">
+        <div class="declaim row">
+            <b>文章來源自各大平台，其版權屬於原創作者或上載平台，若有疑慮，請立即來信，將進行刪除動作。</b>
+        </div>
+        <div class="me-3 row">
+            <div id="mail" class="modal fade" tabindex="-1" data-bs-backdrop="static">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">聯絡我們</h5>
+                            <button type="button" class="btn-close" id="closeBtn" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-start">
+                            <p>敬愛的讀者您好 : </p>
+                            <p>可經由站內信或是利用以下e-mail寄信給我們</p>
+                            <p class="text-end">溫火小說網全體員工敬上。</p>
+                            <p>e-mail : <span onclick="copy()" id="copyemail">Abcde@gmail.com<img src="../imgs/copy.png"
+                                        style="height: 20px;width: 20px;cursor: pointer;">
+                                </span>
+                            </p>
+                            <label for="question">問題類型 : </label>
+                            <select name="" id="question">
+                                <option value="">書籍推薦</option>
+                                <option value="">問題回饋</option>
+                                <option value="">用戶體驗</option>
+                            </select>
+                            <br>
+                            <label for="comment">問題內容：</label>
+                            <form action="" class="mt-2">
+                                <textarea id="comment" cols="42" rows="10" class="p-2 form-control"></textarea>
+                                <br>
+                                <div class="modal-footer pe-0">
+                                    <button style="background-color: var(--bs-warning);" class="btn"
+                                        id="comment">送出評論</button>
+                                    <button type="button" class="btn btn-secondary" id="cancelBtn"
+                                        data-bs-dismiss="modal">取消</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 d-flex justify-content-between">
+                <button class="js-back-to-top btn rounded-circle back-to-top">^ 回到頂部</button>
+                <span class="changeIcon" id="mailIcon2" style="cursor: pointer;margin: auto 0;" data-bs-toggle="modal"
+                    data-bs-target="#mail">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+        </script>
+
+</body>
+
+</html>
